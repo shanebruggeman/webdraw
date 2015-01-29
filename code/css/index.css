@@ -1,0 +1,19 @@
+html, body {
+	height: 100%;
+}
+
+#login-wrapper {
+	text-align: center;
+	height: 100%;
+}
+
+#login-container {
+	display: inline-block;
+	background-color: red;
+	padding: 20px;
+	text-align: center;
+}
+
+.login-form {
+	display: inline-block;
+}
