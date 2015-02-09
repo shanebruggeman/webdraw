@@ -7,13 +7,35 @@ html, body {
 	height: 100%;
 }
 
-#login-container {
-	display: inline-block;
-	background-color: red;
-	padding: 20px;
-	text-align: center;
-}
 
 .login-form {
 	display: inline-block;
+}
+#login-container {	
+	/**needs further styling**/
+	display:inline-block;
+	position:absolute;
+	/**width: 300px;
+	height: 200px;**/
+	background-color:#0052A5;
+	padding: 20px;
+	text-align: center;
+
+	/**FORCE THE CENTER**/
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	/* bring your own prefixes */
+  	transform: translate(-50%, -50%);
+	z-index: 5;
+	border-radius: 2px 2px 2px 2px;
+}
+#blackBackground{
+	position: absolute;
+	top:0;
+	z-index: 4;
+	width:100%;
+	height:100%;
+	background-color: #000000;
+	opacity: .6;
 }

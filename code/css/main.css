@@ -12,6 +12,22 @@ body{
 	color:white;
 }
 						/** Header CSS**/
+#logo img{
+	float:left;
+	margin-left:10px;
+}
+
+#logo a {
+	float:left;
+	font-size:2.5em;
+	padding: 10px 10px 10px 10px;
+	/**min-width:140px;**/
+	text-align: center;
+	color: #FFFFFF;
+	background: #2F3036;
+	text-decoration: none;
+}
+
 
 #current {
 	background-color: #3C3C3C;
@@ -23,13 +39,14 @@ nav{
 	width: 100%;
 	height: 66px;
 	z-index: 10;
+	display:inline-block;
 } 
 nav ul {
 	list-style-type:none;
 	margin:0;
 	padding:0;
 	position: absolute;
-	margin-left: 10px;
+	margin-left: 300px;
 }
 nav li {
 	display:inline-block;
@@ -42,7 +59,7 @@ nav li a {
 	font-size:1.25em;
 	display:block;
 	/**min-width:140px;**/
-	padding: 0 10px 0 10px;
+	padding: 8px 10px 0 10px;
 	height: 50px;
 	text-align: center;
 	line-height: 50px;	
@@ -119,7 +136,7 @@ input[type=checkbox]:checked ~ #menu{
 
 /*Responsive Styles*/
 
-@media screen and (max-width : 430px){
+@media screen and (max-width : 535px){
 	/*Make dropdown links appear inline*/
 	nav ul {
 		position: static;
@@ -136,5 +153,8 @@ input[type=checkbox]:checked ~ #menu{
 	/*Display 'show menu' link*/
 	.show-menu {
 		display:block;
+	}
+	#logo {
+		display:none;
 	}
 }
