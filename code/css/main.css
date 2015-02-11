@@ -118,7 +118,7 @@ li ul li a {
 /*Style 'show menu' label button and hide it by default*/
 .show-menu {
 	background-color: #2f3036; 
-	float: right;
+	float: left;
 	padding: 0px;
 	display: none;
 }
@@ -136,11 +136,12 @@ input[type=checkbox]:checked ~ #menu{
 
 /*Responsive Styles*/
 
-@media screen and (max-width : 535px){
+@media screen and (max-width : 800px){
 	/*Make dropdown links appear inline*/
 	nav ul {
 		position: static;
 		display: none;
+		margin-left: 0px;
 	}
 	/*Create vertical spacing*/
 	nav li {
@@ -153,8 +154,9 @@ input[type=checkbox]:checked ~ #menu{
 	/*Display 'show menu' link*/
 	.show-menu {
 		display:block;
+		float:left;
 	}
-	#logo {
+	#logo img {
 		display:none;
 	}
 }

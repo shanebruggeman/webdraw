@@ -65,7 +65,7 @@ var clearCookies = function(){
 		document.cookie = "username=DEAD; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }
 /**TODO:
-1)alter nav bar depending on login state
+1)alter nav bar depending on login state (shrinkage)
 2)login button triggers full layout
 3)not logged in will re-direct to the blank homepage
 
