@@ -7,6 +7,8 @@ window.onload = function(){
 	
 	console.log('hit');
 	checkcookie();
+	
+	
 }
 
 
