@@ -1,4 +1,7 @@
 <?php 
+	// necessary for allowing cross-origin requests
+	header("Access-Control-Allow-Origin: *");
+
 	session_start();
 	if (isset($_SESSION)){
 		session_unset();
@@ -7,24 +10,25 @@
 
 	include 'setdb.php';
 
-	$returns = array();
+	// fail if no username / password is provided
+	if(!isset($_POST['username']) || !isset($_POST['password'])) {
+		http_response_code(400);
+	}
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$query = $db->prepare('select * from users where users.username =:username and users.password=:password');
+	$query = $db->prepare('select * from users where username = :username and password = :password');
 	$query->bindValue(':username', $username, PDO::PARAM_STR);
 	$query->bindValue(':password', $password, PDO::PARAM_STR);
 	$query->execute();
 
-	$rowCount = $query->rowCount();
+	$count = $query->rowCount();
 
-	if($rowCount == 0) {
-		http_response_code(404); //causes the request to fail when no users are found
+	// fail and signal that the user was not found
+	if($count == 0) {
+		http_response_code(418);
 	}
-
-	$returns["username"] = $username;
-	$returns["password"] = $password;
 
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;

@@ -1,3 +1,3 @@
 <?php
- $db = new PDO("mysql:dbname=webdraw;host=localhost", "root", "");
+	$db = new PDO("mysql:dbname=webdraw;host=localhost", "webdraw", "password");
 ?>

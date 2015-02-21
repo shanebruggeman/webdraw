@@ -55,7 +55,7 @@ var login = function(){
 
 	$.ajax({
 		type: "POST",
-		url: "../php/login.php",
+		url: "http://webdraw.csse.rose-hulman.edu/login.php",
 		datatype: "html",
 		data: packet,
 		async: false,
@@ -75,17 +75,7 @@ var login = function(){
 			closelogin();
 		}
 	}).done(function() {
-		$.ajax({
-			type: "POST",
-			url: "../php/redirect.php",
-			data: {url:"index.html"},
-			success: function() {
-				console.log("successful redirect");
-			},
-			error: function() {
-				console.log("utter, miserable failure")
-			}
-		});	
+		console.log("done");	
 	});
 }
 
