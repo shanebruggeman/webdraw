@@ -11,26 +11,60 @@ html, body {
 .login-form {
 	display: inline-block;
 }
-#login-container {	
-	/**needs further styling**/
+
+
+
+#login-wrapper {
 	display:inline-block;
 	position:absolute;
-	/**width: 300px;
-	height: 200px;**/
-	background-color:red;
+	width: 300px;
+	height: 300px;
 	padding: 20px;
-	text-align: center;
-	color: green;
-
-	/**FORCE THE CENTER**/
+		/**FORCE THE CENTER**/
 	position: fixed;
   	top: 50%;
   	left: 50%;
   	/* bring your own prefixes */
   	transform: translate(-50%, -50%);
 	z-index: 5;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#login-header{
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	padding: 10px 20px;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+}
+
+#login-form {	
+	/**needs further styling**/
+	padding: 10px 20px;
+	color:black;
+	background-color: #FFFFFF;
+	text-align: left;
+	border-radius: 0px 0px 5px 5px;
+	font-weight: bold;
+}
+
+#login-form p {
+	display:none;
+	color:red;
+	font-size: 12px;
+	margin: 5px 0px 3px 0px;
+}
+
+#login-form button{
+	margin:7px 0px 0px 0px;
+	font-size: 14px;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
 	border-radius: 2px 2px 2px 2px;
 }
+
 #blackBackground{
 	position: absolute;
 	top:0;

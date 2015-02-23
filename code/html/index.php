@@ -17,11 +17,17 @@
 		<div class="push"></div>
 	</div>
 	<div style="display:none" id="login-wrapper">
-		<div id="login-container">
-			<h2>Please Login</h2>
-			<input type="text" name="username" placeholder="username"/>
-			<input type="password" name="password" placeholder="password"/>
-			<input type="submit" onclick="login()"/>
+		<div id="login-header">
+			<h2>Sign In</h2>
+		</div>
+		<div id="login-form">
+			<label for="username">Username</label><br>
+			<input type="text" name="username" /><br>
+			<label for="password">Password</label><br>
+			<input type="password" name="password"/><br>
+			<p id="loginError">Invalid Username or Password</p>
+			<button type="submit" value="Sign in" onclick="login()">Sign in</button>
+			<!--<input class="button" type="submit" value="Sign in" onclick="login()"/>-->
 		</div>
 	</div>
 	<div style="display:none;" id="blackBackground" onclick="closelogin()"></div>
