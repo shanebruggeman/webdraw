@@ -4,6 +4,7 @@
 	<title>User Profile</title>
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/profile.css">
+	<script src="../libraries/jquery-2.1.3.min.js"></script>
 	<script src="../javascript/profile.js"></script>
 	<script src="../javascript/index.js"></script>
 	<script src="http://www.webstepbook.com/Cookie.js" type="text/javascript"></script>

@@ -1,5 +1,5 @@
 <?php 
 	$place = $_POST["uri"];
-	header("Location: ../php/$place");
+	header("Location: ../scripts/$place");
 	exit;
  ?>

@@ -3,8 +3,8 @@
 <head>
 	<title>Web Draw</title>
 	<!--CSS-->
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<link rel="stylesheet" type="text/css" href="../css/draw.css">
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
+	<link rel="stylesheet" type="text/css" href="../style/draw.css">
 	
 	<!--Javascript-->
 	<script src="../libraries/jquery-2.1.3.min.js"></script>

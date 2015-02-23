@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Web Draw</title>
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
+	<link rel="stylesheet" type="text/css" href="../style/index.css">
 	<script src="../libraries/jquery-2.1.3.min.js"></script>
 	<script src="../javascript/index.js"></script>
 	<link href="../../resources/images/paint_full1.gif" type="image/gif" rel="shortcut icon"/>
