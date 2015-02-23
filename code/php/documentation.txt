@@ -1,0 +1,36 @@
+API Requests:
+
+-- Remember this in your PHP Script, else you will get cross-site scripting errors --
+	
+	header("Access-Control-Allow-Origin: *");
+
+-- Basic Information --
+
+Username: webdraw
+Password: password
+
+Base Url: 'http://webdraw.csse.rose-hulman.edu/'
+
+When making a request to the VM, send it the Base URL + the php script name
+
+-- Example: 'http://webdraw.csse.rose-hulman.edu/' + 'login.php';
+-- Example: 'http://webdraw.csse.rose-hulman.edu/' + 'profile.php';
+
+The response to your ajax request will contain information as detailed below.
+
+__________________________________________________________________
+
+Login
+
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/login.php',
+		data: {username, password},
+		dataType: 'json',
+
+
+
+Profile
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/profile_picture.php',
+		data: {username},
+		content-type: 'image/png'

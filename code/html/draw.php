@@ -49,47 +49,7 @@
 <body>
 	<div class="wrapper">
 		<header role="banner">
-			<nav>
-				<div id="logo">
-					<img src="../../resources/images/paintsmall.gif">
-					<a href="#">Web Draw</a>
-				</div>
-
-				<label for="show-menu" class="show-menu">
-					<img src="../../resources/images/paintsmall.gif"></label>
-				<input type="checkbox" id="show-menu" role="button">
-				<ul id="menu">
-					<li>
-						<a href="index.html">Profile</a>
-					</li>
-					<li>
-						<a href="#">Draw</a>
-					</li>
-					<li>
-						<a href="#">Gallery</a>
-					</li>
-					<li>
-						<a href="#">Settings</a>
-						<ul class="hidden">
-							<li>
-								<a href="#">Sample1</a>
-							</li>
-							<li>
-								<a href="#">Sample2</a>
-							</li>
-							<li>
-								<a href="#">Sample3</a>
-							</li>
-							<li>
-								<a href="#">Sample4</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="index.html" onclick="clearCookies()">Clear Cookies</a>
-					</li>
-				</ul>
-			</nav>
+			<?php include 'navbar.html' ?>
 		</header>
 		<!--New Shit goes here-->		
 		<div class="push"></div>

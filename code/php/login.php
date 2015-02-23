@@ -1,12 +1,8 @@
-<?php 
+<?php
+	// note to add session stuff later
+
 	// necessary for allowing cross-origin requests
 	header("Access-Control-Allow-Origin: *");
-
-	session_start();
-	if (isset($_SESSION)){
-		session_unset();
-		session_destroy();
-	}
 
 	include 'setdb.php';
 
@@ -18,7 +14,7 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	$query = $db->prepare('select * from users where username = :username and password = :password');
+	$query = $db->prepare('select * from user where username = :username and password = :password');
 	$query->bindValue(':username', $username, PDO::PARAM_STR);
 	$query->bindValue(':password', $password, PDO::PARAM_STR);
 	$query->execute();
@@ -30,8 +26,5 @@
 		http_response_code(418);
 	}
 
-	$_SESSION["username"] = $username;
-	$_SESSION["password"] = $password;
-
-	echo json_encode($returns);
+	// echo json_encode($returns);
  ?>

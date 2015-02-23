@@ -1,0 +1,41 @@
+html,body {
+	margin: 0;
+	margin: 0;
+	height: 100%;
+}
+
+#content {
+	height: 100%;
+	position: relative;
+	background-color: gray;
+}
+
+#slim-content {
+	height: 100%;
+	width: 80%;
+	background-color: #927523;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+
+#person-head {
+	min-height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	width: 50%;
+	border-bottom: 2px dotted black;
+}
+
+.profile_picture_wrapper {
+	display: inline-block;
+}
+
+.user_account {
+	display: inline-block;
+}
+
+#person-body {
+	height: 100%;
+}

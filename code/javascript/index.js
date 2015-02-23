@@ -7,12 +7,27 @@ var MENU;
 window.onload = function(){
 	console.log("testing username: " + Cookie.get("username"));
 
+	var usernameField = $("input[name=username]");
+	var passwordField = $("input[name=password]");
+
+	textInputImprove(usernameField);
+	textInputImprove(passwordField);
+
+
 	if(Cookie.exists("username")) {
 		console.log("success");
 	} else {
 		beforeLoggedInBar();
 		console.log("must default");
 	}
+}
+
+var textInputImprove = function(elementDOM) {
+	elementDOM.keypress(function(event) {
+        if (event.keyCode == 13) {
+            login();
+        }
+    });
 }
 
 var beforeLoggedInBar = function() {
@@ -63,8 +78,7 @@ var login = function(){
 			console.log("login data: " + data);
 			//document.cookie=("username=" + data["username"]); ; //auto deletes on browser close
 			//document.cookie=("password=" + data["password"]); //auto deletes on browser close
-			Cookie.set("username", data["username"]);
-			Cookie.set("password", data["password"]);
+			Cookie.set("username", packet.username);
 			Cookie.set("login-success", true);
 		},
 		error: function() {
