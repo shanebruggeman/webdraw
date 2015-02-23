@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>User Profile</title>
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<link rel="stylesheet" type="text/css" href="../css/profile.css">
+	<link rel="stylesheet" type="text/css" href="../style/main.css">
+	<link rel="stylesheet" type="text/css" href="../style/profile.css">
 	<link rel="stylesheet" type="text/css" href="profile/css/imgareaselect-default.css" />
 	<script type="text/javascript" src="profile/scripts/jquery.min.js"></script>
 	<script type="text/javascript" src="profile/scripts/jquery.imgareaselect.pack.js"></script>
