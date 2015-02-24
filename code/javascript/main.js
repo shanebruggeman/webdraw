@@ -36,6 +36,10 @@ var magnifyImage = function(e,ownership){
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
+	console.log(e.children[0].src);
+	console.log($("#forkbutton"));
+	document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
+	//$("#forkbutton").setAttribute("imgurl", e.children[0].src);
 
 }
 
@@ -55,9 +59,11 @@ var closeViewer = function(){
 	$("#viewer-wrapper").hide();	
 }
 
+//sends image url to draw page to use as starting image
 var forkpic = function(e){
-	console.log("fork",e);
-	//redirect("draw.php");
+	//console.log("fsork",e);
+	//console.log(e.getAttribute("imgurl"));
+	redirect("draw.php?imgurl="+e.getAttribute("imgurl"));
 }
 
 var deletepic = function(e){
