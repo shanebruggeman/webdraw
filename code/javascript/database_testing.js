@@ -43,17 +43,19 @@ var getProfilePicture = function() {
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php",
-		dataType: "json",
+		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
+		dataType: "html",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
-			console.log(data);
-			for(var pictureName in data) {
-				for(var i = 0; i < data[pictureName].length; i++) {
-					$("#dump_spot").append(data[pictureName][i]);
-				}
-			}
+			// console.log(data);
+			$("#dump_spot").append($(data));
+			
+			// for(var pictureName in data) {
+			// 	for(var i = 0; i < data[pictureName].length; i++) {
+			// 		$("#dump_spot").append(data[pictureName][i]);
+			// 	}
+			// }
 		},
 		error: function(request, status, error) {
 			console.log("Failure");
