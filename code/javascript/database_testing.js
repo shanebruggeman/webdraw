@@ -10,20 +10,26 @@ var correctHeight = function() {
 
 var getProfilePicture = function() {
 	var username = Cookie.get("username");
-	console.log("username is " + username);
 
 	var packet = {
 		"username": username
 	}
 
+	console.log("Packet sent is " + JSON.stringify(packet));
+
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
-		data: packet,
+		url: "http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php",
 		dataType: "json",
+		data: packet,
 		success: function(data) {
-			console.log(data["bear.png"]);
-			$("#dump_spot").append(data["bear.png"][0]);
+			console.log("successful query");
+			console.log(data);
+			// for(var pictureName in data) {
+			// 	for(var i = 0; i < data[pictureName].length; i++) {
+			// 		$("#dump_spot").append(data[pictureName][i]);
+			// 	}
+			// }
 		},
 		error: function(request, status, error) {
 			console.log("Failure");

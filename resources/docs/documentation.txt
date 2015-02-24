@@ -27,24 +27,78 @@ Login
 		data: {username, password},
 		dataType: 'json',
 
+	Returns:
+		none
 
 
-Profile
+Profile Picture
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/profile_picture.php',
 		data: {username},
-		content-type: 'image/png'
+		content-type: 'image/png',
+		dataType: "HTML"
 
-All Images
+	Returns:
+		HTML imageTag
+
+All User Pictures
 	GET
-		url: "http://webdraw.csse.rose-hulman.edu/all_pictures.php",
+		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
 		data: {username},
 		dataType: "json"
 
+	Returns:
+
 	{
-		"image_name" : [
+		"image_name1" : [
 			imageTag,
 			imageTag,
 			imageTag
-		]
+		],
+		"image_name2" : [
+			imageTag,
+			imageTag,
+			imageTag,
+			...
+		],
+		...
+	}
+
+All User Picture IDs
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php',
+		data: {username},
+		dataType: "json"
+
+	Returns:
+
+	{
+		image_id1 : image_name,
+		image_id2 : image_name,
+		image_id3 : image_name,
+		...
+	}
+
+All Public Pictures
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php',
+		dataType: "json",
+		...
+
+	Returns:
+
+	{
+		"image_name1", : [
+			imageTag,
+			imageTag,
+			imageTag,
+			...
+		],
+		"image_name2", : [
+			imageTag,
+			imageTag,
+			imageTag,
+			...
+		],
+		...
 	}
