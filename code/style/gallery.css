@@ -8,7 +8,7 @@
 #header-bar {
 	color: #FFFFFF;
 	background-color:#44a6c7;
-	padding: 10px 20px;
+	padding: 15px 15px;
 	border-radius: 5px 5px 0px 0px;
 	font-weight: bold;
 	height: auto;
@@ -32,7 +32,8 @@
 }
 
 #header-bar input {
-	font-size: 1.3em;
+	font-size: 1.1em;
+	width: 100px;
 }
 
 

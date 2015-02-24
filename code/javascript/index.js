@@ -52,7 +52,7 @@ var openlogin = function(){
  */
 var getLoginCredentials = function() {
 	var username = $("input[name=username]").val();
-	var password = $("input[name=password").val();
+	var password = $("input[name=password]").val();
 	return {username: username, password: password};
 }
 
@@ -80,7 +80,7 @@ var login = function(){
 			Cookie.set("username", packet.username);
 			Cookie.set("login-success", true);
 			document.getElementById('menu').innerHTML= MENU;
-			closelogin();
+			closeblack();
 			window.location.href = "profile.php"
 		$("body").innerText ='If you are not redirected automatically, follow the <a href="profile.php">link</a>';
 		},
