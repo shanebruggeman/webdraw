@@ -11,6 +11,11 @@
 <body>
 	<div class="wrapper">
 		<?php include 'navbar.html' ?>
+		<form id="uploadimage" action="" method="post" enctype="multipart/form-data">
+		    Select image to upload:
+		    <input type="file" name="file" id="file" required>
+		    <input type="submit" value="Upload" name="submit">
+		</form>
 
 		<div id="dump_spot">
 			
