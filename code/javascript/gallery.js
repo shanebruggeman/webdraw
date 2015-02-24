@@ -12,6 +12,7 @@ var fillPics = function(){
 			magnifyImage(this,false);
 		}
 		picList.append(item);
+		console.log('hit');
 		//console.log(i);
 	}
 }

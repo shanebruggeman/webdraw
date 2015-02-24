@@ -20,6 +20,7 @@ window.onload = function(){
 		beforeLoggedInBar();
 		console.log("must default");
 	}
+	fillPics();
 }
 
 var textInputImprove = function(elementDOM) {
@@ -35,9 +36,10 @@ var beforeLoggedInBar = function() {
 	document.getElementById('menu').innerHTML='<li><a id="login" href="#" onclick="openlogin()">Login</a></li>';
 }
 
-var closelogin = function(){
+var closeblack = function(){
 	$("#blackBackground").hide();
 	$('#login-wrapper').hide();
+	$("#viewer-wrapper").hide();
 }
 
 var openlogin = function(){

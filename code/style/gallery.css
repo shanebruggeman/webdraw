@@ -11,7 +11,8 @@
 	padding: 10px 20px;
 	border-radius: 5px 5px 0px 0px;
 	font-weight: bold;
-	height: 40px;
+	height: auto;
+	overflow: auto;
 }
 #header-bar label {
 	font-size: 1.3em;
