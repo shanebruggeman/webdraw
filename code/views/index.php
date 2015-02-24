@@ -27,8 +27,8 @@
 					<h1>Public Pictures</h1>
 				</div>
 				<div id="search">
-					<label for="username">Picture Name</label>
-					<input type="text" name="username" />
+					<label for="picname">Picture Name</label>
+					<input type="text" name="name" />
 					<button type="submit" value="Search" onclick="search()">Search</button>
 				</div>
 			</div>
@@ -47,10 +47,6 @@
 		</div>
 		<div id="viewer-content">
 			<div id="viewer-picture"></div>
-			<div id="viewer-buttons">
-				<button type="submit" value="fork" onclick="fork()">Fork</button>
-				<button id="deleteButton" type="submit" value="delete" onclick="delete()">Delete</button>
-			</div>
 		</div>
 	</div>
 

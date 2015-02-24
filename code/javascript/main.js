@@ -7,8 +7,9 @@ var onStart = function(){
 	} else {
 		beforeLoggedInBar();
 		//redirect to index page
-		window.location.href = "index.php"
-		$("body").innerText ='If you are not redirected automatically, follow the <a href="index.php">link</a>';
+		redirect("index.php");
+		//window.location.href = "index.php"
+		//$("body").innerText ='If you are not redirected automatically, follow the <a href="index.php">link</a>';
 		console.log("must default");
 	}
 }
@@ -16,6 +17,11 @@ var onStart = function(){
 var beforeLoggedInBar = function() {
 	MENU = document.getElementById('menu').innerHTML;
 	document.getElementById('menu').innerHTML='<li><a id="login" href="#" onclick="openlogin()">Login</a></li>';
+}
+
+var redirect = function(location){
+	window.location.href = location;
+	$("body").innerText ='If you are not redirected automatically, follow the <a href="'+ location +'">link</a>';
 }
 
 //FOR DEV testing, not for prod USED ROF LOG OUT
@@ -47,4 +53,13 @@ var pictureViewer = function(ownership){
 var closeViewer = function(){
 	$("#blackBackground").hide();
 	$("#viewer-wrapper").hide();	
+}
+
+var forkpic = function(e){
+	console.log("fork",e);
+	//redirect("draw.php");
+}
+
+var deletepic = function(e){
+	console.log("delete",e);
 }

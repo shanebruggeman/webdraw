@@ -1,0 +1,119 @@
+.profile {
+	margin: 1.7em auto 2em auto;
+	width:80%;
+	max-width: 1020px;
+	/**margin-left: auto;
+	margin-right: auto;**/
+}
+
+#profilepic {
+	float: left;
+	width:240px;
+	height: 240px;
+	margin-bottom: 20px;
+}
+
+.right {
+	width: 340px;
+	height: 240px;
+	margin-bottom: 20px;
+	float:right;
+}
+.right h1{
+	margin-bottom: 20px;
+}
+.right h2 {
+	margin-bottom:30px;
+}
+
+.name input {
+	display: inline;
+	font-size: 1.2em;
+	width: 145px;
+}
+
+#emailInput{
+	font-size: 1.1em;
+	width: 300px;
+}
+
+#saveProfile{
+	margin-top: 25px;
+	font-size: .7em;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
+
+
+
+/**FRIENDS**/
+#friends-header  {
+	clear:both;
+	width:100%;
+	height: auto;
+	padding:10px 10px 10px 10px;
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+
+	overflow: auto;
+}
+#friends-header  label {
+	font-size: 1.3em;
+}
+
+#friends-header  * {
+	vertical-align: bottom;
+}
+
+#friends-header  button {
+	font-size: .7em;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
+
+#searchinput {
+	font-size: 1.1em;
+	width: 100px;
+}
+
+#title {
+	float:left;
+}
+
+#search {
+	float:right;
+}
+
+.add {
+	float:left;
+	margin-right:10px;
+}
+.gallery {
+	margin-top:0;
+	display: inline-block;
+	padding: 10px;
+	clear:both;
+	width: 100%;
+	height: 270px;
+	background-color: #5C5C5C;
+	
+}
+.gallery ul {
+    list-style-type:none;
+    white-space:nowrap;
+    overflow-x:auto;
+}
+
+.gallery li {
+	display:inline;
+}
+

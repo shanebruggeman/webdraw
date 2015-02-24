@@ -25,12 +25,20 @@
 				<h2>FirstName Last</h2>
 				<h3>emailAddress@email.com</h3>
 			</div>
+			<div id="myPicsHeader">
+				<div id="my-title">
+					<h1>My Pictures</h1>
+				</div>
+			</div>
 			<div class="gallery" id="myPics">
-				<h3>My Pictures</h3>
 				<ul></ul>
 			</div>
+			<div id="friendsPicHeader">
+				<div id="friend-title">
+					<h1>My Friend's Pictures</h1>
+				</div>
+			</div>
 			<div class="gallery" id="friendsPics">
-				<h3>My Friend's Pictures</h3>
 				<ul></ul>
 			</div>
 		</div>
@@ -41,8 +49,8 @@
 			<div id="viewer-content">
 				<div id="viewer-picture"></div>
 				<div id="viewer-buttons">
-					<button type="submit" value="fork" onclick="fork()">Fork</button>
-					<button id="deleteButton" type="submit" value="delete" onclick="delete()">Delete</button>
+					<button type="submit" value="fork" onclick="forkpic(this)">Fork</button>
+					<button id="deleteButton" type="submit" value="delete" onclick="deletepic(this)">Delete</button>
 				</div>
 			</div>
 		</div>
