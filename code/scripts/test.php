@@ -17,7 +17,7 @@
 
 	$picture_id = $results["picture_id"];
 
-	$path = 'pictures/picture' . $picture_id . '.png';
+	$path = 'picture' . $picture_id . '.png';
 
 	// Read path path, convert to base64 encoding
 	$imageData = base64_encode(file_get_contents($path));

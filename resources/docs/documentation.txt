@@ -34,3 +34,17 @@ Profile
 		url: 'http://webdraw.csse.rose-hulman.edu/profile_picture.php',
 		data: {username},
 		content-type: 'image/png'
+
+All Images
+	GET
+		url: "http://webdraw.csse.rose-hulman.edu/all_pictures.php",
+		data: {username},
+		dataType: "json"
+
+	{
+		"image_name" : [
+			imageTag,
+			imageTag,
+			imageTag
+		]
+	}
