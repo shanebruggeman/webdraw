@@ -41,8 +41,8 @@
 			<div id="viewer-content">
 				<div id="viewer-picture"></div>
 				<div id="viewer-buttons">
-					<button type="submit" value="fork" onclick="fork()">Fork</button>
-					<button id="deleteButton" type="submit" value="delete" onclick="delete()">Delete</button>
+					<button type="submit" value="fork" onclick="forkpic(this)">Fork</button>
+					<button id="deleteButton" type="submit" value="delete" onclick="deletepic(this)">Delete</button>
 				</div>
 			</div>
 		</div>
