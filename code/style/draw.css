@@ -1,0 +1,22 @@
+#wPaint {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	margin: 70px auto 0 auto;
+}
+
+#emailbox {
+	position: relative;
+	width: 240px;
+	margin: 10px auto;
+}
+
+#wPaint-img {
+	position:relative;
+	width:240px;
+	margin:0 auto;
+}
+
+#email-msg {
+	color:#6699ff;
+}
