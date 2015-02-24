@@ -67,11 +67,11 @@
 	font-size: 1.3em;
 }
 
-#friends-header  *{
+#friends-header  * {
 	vertical-align: bottom;
 }
 
-#friends-header  button{
+#friends-header  button {
 	font-size: .7em;
 	padding: 5px 15px;
 	background-color: #EEE;
@@ -85,7 +85,7 @@
 	width: 100px;
 }
 
-#title{
+#title {
 	float:left;
 }
 
