@@ -1,6 +1,13 @@
 $(document).ready(function() {
+
+	//get fork image if exists
+	if(document.getElementById('imgurl'))
+		var imgurl = document.getElementById('imgurl').src
+		
 	// init wPaint
 	$('#wPaint').wPaint({
+	
+	  image: imgurl,
 	  bg: '#cacaca',
 	  menuOffsetLeft: -155,
 	  menuOffsetTop: -55,
@@ -12,6 +19,47 @@ $(document).ready(function() {
 	  path: '../libraries/wPaint/',
 	  bg: '#FFFFFF'
 	});
+	
+	//var username = Cookie.get("username");
+	var username = 'bruggess';
+	
+	var packet = {
+		"username": username
+	}
+	
+	var images = {};
+	
+	/*$.ajax({
+		type: "GET",
+		url: "http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php",
+		dataType: "json",
+		data: packet,
+		success: function(data) {
+			console.log("successful query");
+			console.log(data);
+			
+			var img = document.createElement("img");
+			img.src = "http://webdraw.csse.rose-hulman.edu/pictures/picture1.png";
+			$("#wPaint-img").append(img);
+			
+			
+			$("#wPaint-img").append("<img url = http://webdraw.csse.rose-hulman.edu/pictues/"+"picture1.png>"+"</img>");
+			
+			for(var pictureName in data) {
+				for(var i = 0; i < data[pictureName].length; i++) {
+					var img = document.createElement("img");
+					img.src = "http://webdraw.csse.rose-hulman.edu/pictures/" + data[pictureName];
+					$("#wPaint-img").append(img);
+			 		$("#wPaint-img").append("<img url = \"http://webdraw.csse.rose-hulman.edu/pictues/"+data[pictureName][i]+"</img>");
+			 	}
+			 }
+		},
+		error: function(request, status, error) {
+			console.log("Failure");
+		}
+	});*/
+	
+	
 });
 
 
@@ -67,3 +115,4 @@ function loadImgFg () {
   console.log("loadImgFg");
   this._showFileModal('fg', images);
 }
+

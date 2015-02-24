@@ -54,6 +54,15 @@
 		<div class="push"></div>
 	</div>
 	
+	<?php
+		if(isset($_GET['imgurl'])) {
+			$imgurl = $_GET['imgurl'];
+			echo '<img id="imgurl" src ="' . $imgurl . '"></img>';
+		}
+	
+	
+	?>
+	
 <!-- BEGIN WPAINT __________________________________________________________________-->
       <div id="wPaint"></div>
       <!--<div id="emailbox">
