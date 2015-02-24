@@ -3,28 +3,41 @@
 
 	include 'setdb.php';
 
-	$username = $_GET['username'];
+	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = false');
 
-	$profileQuery = $db->prepare('select user.profile_pic_id from user join picture on user.profile_pic_id = picture.id where user.username = :username');
-	$profileQuery->bindValue(':username', $username, PDO::PARAM_STR);
-
-	$results = array();
 	if ($profileQuery->execute()) {
 	    while ($row = $profileQuery->fetch(PDO::FETCH_ASSOC)) {
-	        $results["picture_id"] = $row["profile_pic_id"];
+	    	$name = trim($row["name"]);
+
+	    	if(!is_array($queryResults[$name])) {
+		    	$queryResults[$row["name"]] = array();
+	    	}
+
+	    	array_push($queryResults[$row["name"]], $row["id"]);
 	    }
 	}
 
-	$picture_id = $results["picture_id"];
+	$images = array();
 
-	$path = 'picture' . $picture_id . '.png';
+	foreach ($queryResults as $filename => $idArray) {
+		$images[$filename] = array();
 
-	// Read path path, convert to base64 encoding
-	$imageData = base64_encode(file_get_contents($path));
+		for($i = 0; $i < count($idArray); $i++) {
+			$currentId = $queryResults[$filename][$i];
+			$path = 'pictures/picture' . $currentId . '.png';
+	
+			// Read path path, convert to base64 encoding
+			$imageData = base64_encode(file_get_contents($path));
 
-	// Format the path SRC:  data:{mime};base64,{data};
-	$src = 'data: '.mime_content_type($path).';base64,'.$imageData;
+			// Format the path SRC:  data:{mime};base64,{data};
+			$src = 'data: '.mime_content_type($path).';base64,'.$imageData;
 
-	// Echo out a sample path
-	echo "<img src=\"$src\" alt=\"\" />";
+			// Echo out a sample path
+			$imageHTML = "<img src=\"$src\" alt=\"\" />";
+			array_push($images[$filename], $imageHTML);
+		}
+	}
+
+	// echo json_encode($images);
+	echo "hello";
  ?>

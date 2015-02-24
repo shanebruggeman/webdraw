@@ -43,13 +43,13 @@ var getProfilePicture = function() {
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
-		dataType: "html",
+		url: "http://webdraw.csse.rose-hulman.edu/user_information.php",
+		dataType: "text",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
 			// console.log(data);
-			$("#dump_spot").append($(data));
+			console.log(data);
 			
 			// for(var pictureName in data) {
 			// 	for(var i = 0; i < data[pictureName].length; i++) {

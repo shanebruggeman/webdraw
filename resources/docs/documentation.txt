@@ -102,3 +102,18 @@ All Public Pictures
 		],
 		...
 	}
+
+All User Information
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php',
+		dataType: "text",
+		data: {username}
+
+	Returns:
+
+	{
+		username: "username",
+		first_name: "first_name",
+		last_name: "last_name",
+		email: "email"
+	}
