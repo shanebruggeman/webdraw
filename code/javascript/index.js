@@ -20,6 +20,7 @@ window.onload = function(){
 		beforeLoggedInBar();
 		console.log("must default");
 	}
+	fillPics();
 }
 
 var textInputImprove = function(elementDOM) {
@@ -35,9 +36,10 @@ var beforeLoggedInBar = function() {
 	document.getElementById('menu').innerHTML='<li><a id="login" href="#" onclick="openlogin()">Login</a></li>';
 }
 
-var closelogin = function(){
+var closeblack = function(){
 	$("#blackBackground").hide();
 	$('#login-wrapper').hide();
+	$("#viewer-wrapper").hide();
 }
 
 var openlogin = function(){
@@ -58,7 +60,6 @@ var getLoginCredentials = function() {
  * Attempts to login, via database queries with the login credentials
  */
 var login = function(){
-	document.getElementById('menu').innerHTML= MENU;
 	var credentials = getLoginCredentials();
 
 	var packet = {
@@ -66,7 +67,7 @@ var login = function(){
 		"password": credentials["password"]
 	};
 
-	console.log("Sending off data: " + packet);
+	//console.log("Sending off data: " + packet);
 
 	$.ajax({
 		type: "POST",
@@ -76,47 +77,30 @@ var login = function(){
 		async: false,
 		success: function(data) {
 			console.log("login data: " + data);
-			//document.cookie=("username=" + data["username"]); ; //auto deletes on browser close
-			//document.cookie=("password=" + data["password"]); //auto deletes on browser close
 			Cookie.set("username", packet.username);
 			Cookie.set("login-success", true);
+			document.getElementById('menu').innerHTML= MENU;
+			closelogin();
+			window.location.href = "profile.php"
+		$("body").innerText ='If you are not redirected automatically, follow the <a href="profile.php">link</a>';
 		},
 		error: function() {
-			console.log("invalid parameters passed");
-			beforeLoggedInBar();
+			//console.log("invalid parameters passed");
+			//WRITE TO SCREEN INVALID USERNAME OR PASSWORD
+			$("#loginError").show();
 		},
 		complete: function() {
-			closelogin();
+			
 		}
 	}).done(function() {
 		console.log("done");	
 	});
 }
 
-//FROM W3
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
-
-//FOR DEV testing, not for prod
+//FOR DEV testing, not for prod USED ROF LOG OUT
 var clearCookies = function(){
 	var date = new Date();
 	console.log("here");
 	Cookie.remove("username");
-	Cookie.remove("password");
-	// resetPage();
-	//document.cookie = "username=DEAD; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+	//Cookie.remove("password");
 }
-
-/**TODO:
-1)alter nav bar depending on login state (shrinkage)
-2)login button triggers full layout
-3)not logged in will re-direct to the blank homepage
-**/

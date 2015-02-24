@@ -4,34 +4,35 @@
 	<title>User Profile</title>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="../style/main.css">
-	<link rel="stylesheet" type="text/css" href="../style/profile.css">
+	<link rel="stylesheet" type="text/css" href="../style/gallery.css">
 	<!--Libraries-->
 	<script src="../libraries/jquery-2.1.3.min.js"></script>
 	<script src="https://code.createjs.com/preloadjs-0.6.0.min.js"></script>
 	<script src="http://www.webstepbook.com/Cookie.js" type="text/javascript"></script>
 	<!--JS-->
 	<script src="../javascript/main.js"></script>
-	<script src="../javascript/profile.js"></script>
+	<script src="../javascript/gallery.js"></script>
 
 </head>
 <body>
 	<div class="wrapper">
 		<?php include 'navbar.html' ?>
-
-		<div class="profile">
-			<img src="../../resources/images/placeholder.png" id="profilepic">
-			<div class="right">
-				<h1>Username</h1>
-				<h2>FirstName Last</h2>
-				<h3>emailAddress@email.com</h3>
+		<div class="content">
+			<div id="header-bar">
+				<div id="title">
+					<h1>Public Pictures</h1>
+				</div>
+				<div id="search">
+					<label for="username">Picture Name</label>
+					<input type="text" name="username" />
+					<button type="submit" value="Search" onclick="search()">Search</button>
+				</div>
 			</div>
-			<div class="gallery" id="myPics">
-				<h3>My Pictures</h3>
-				<ul></ul>
-			</div>
-			<div class="gallery" id="friendsPics">
-				<h3>My Friend's Pictures</h3>
-				<ul></ul>
+			<div class="gallery">
+				<div class="galleryimage"></div>
+				<div class="gallery" id="myPics">
+					<ul></ul>
+				</div>
 			</div>
 		</div>
 		<div id="viewer-wrapper" style="display:none;">

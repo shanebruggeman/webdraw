@@ -3,7 +3,7 @@
 */
 /**Every Page Stuff**/
 * {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family:Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 	margin:0;
 	padding:0;
 }
@@ -24,7 +24,7 @@ body{
 	/**min-width:140px;**/
 	text-align: center;
 	color: #FFFFFF;
-	background: #2F3036;
+	background: #2C2C2C;
 	text-decoration: none;
 }
 
@@ -35,7 +35,7 @@ body{
 nav{
 	text-align: center;
 	padding: 0em;
-	background-color: #2F3036; 
+	background-color: #2C2C2C; 
 	width: 100%;
 	height: 66px;
 	z-index: 10;
@@ -64,7 +64,7 @@ nav li a {
 	text-align: center;
 	line-height: 50px;	
 	color: #FFFFFF;
-	background: #2F3036;
+	background: #2C2C2C;
 	text-decoration: none;
 }
 
@@ -78,7 +78,7 @@ li:hover a {
 /*Style for dropdown links*/
 li:hover ul a {
 	background: #F3F3F3;
-	color: #2F3036;
+	color: #2C2C2C;
 	height: 40px;
 	line-height: 40px;
 }
@@ -159,4 +159,72 @@ input[type=checkbox]:checked ~ #menu{
 	#logo img {
 		display:none;
 	}
+}
+/**-----------------------------For Gallery and profile------------------------------------**/
+
+#viewer-wrapper {
+	display:inline-block;
+	position:absolute;
+	width: 450px;
+	height: 800px;
+	padding: 20px;
+		/**FORCE THE CENTER**/
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	/* bring your own prefixes */
+  	transform: translate(-50%, -35%);
+	z-index: 5;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#viewer-header{
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	padding: 10px 20px;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+}
+
+#viewer-content {	
+	/**needs further styling**/
+	padding: 10px 20px;
+	color:black;
+	background-color: #FFFFFF;
+	text-align: left;
+	border-radius: 0px 0px 5px 5px;
+	font-weight: bold;
+}
+
+#viewer-content p {
+	display:none;
+	color:red;
+	font-size: 12px;
+	margin: 5px 0px 3px 0px;
+}
+
+#viewer-buttons button{
+	margin:7px 0px 0px 0px;
+	font-size: 14px;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
+
+#viewer-picture img{
+	width:400px;
+	height: 400px;
+}
+
+
+#blackBackground{
+	position: absolute;
+	top:0;
+	z-index: 4;
+	width:100%;
+	height:100%;
+	background-color: #000000;
+	opacity: .6;
 }

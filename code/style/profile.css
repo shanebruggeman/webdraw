@@ -1,41 +1,50 @@
-html,body {
-	margin: 0;
-	margin: 0;
-	height: 100%;
+.profile {
+	margin: 1.7em auto 2em auto;
+	width:80%;
+	max-width: 1020px;
+	/**margin-left: auto;
+	margin-right: auto;**/
+
 }
 
-#content {
-	height: 100%;
-	position: relative;
-	background-color: gray;
+#profilepic {
+	float: left;
+	width:240px;
+	height: 240px;
+	margin-bottom: 20px;
 }
 
-#slim-content {
-	height: 100%;
-	width: 80%;
-	background-color: #927523;
-	margin-left: auto;
-	margin-right: auto;
-	overflow: hidden;
+.right {
+	width: 240px;
+	height: 240px;
+	margin-bottom: 20px;
+	float:right;
+}
+.right h1{
+	margin-bottom: 20px;
+}
+.right h2 {
+	margin-bottom:30px;
 }
 
-#person-head {
-	min-height: 200px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 20px;
-	width: 50%;
-	border-bottom: 2px dotted black;
-}
 
-.profile_picture_wrapper {
+
+.gallery {
 	display: inline-block;
+	padding: 10px;
+	clear:both;
+	width: 100%;
+	height: 270px;
+	background-color: #5C5C5C;
+	
+}
+.gallery ul {
+    list-style-type:none;
+    white-space:nowrap;
+    overflow-x:auto;
 }
 
-.user_account {
-	display: inline-block;
+.gallery li {
+	display:inline;
 }
 
-#person-body {
-	height: 100%;
-}
