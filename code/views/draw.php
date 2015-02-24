@@ -57,90 +57,116 @@
 	
 	
 <!-- END WPAINT ______________________________________________________________________________________________________-->
-	<div id="wPaint-demo1" style="position:relative; width:500px; height:200px; background-color:#7a7a7a; margin:70px auto 20px auto;"></div>
+      <div id="wPaint" style="position:relative; width:240px; height:240px; margin:50px auto 0 auto;"></div>
+      <div style="position:relative; width:240px; margin:10px auto;">
+        <input id="email" type="text" placeholder="Enter email"/>
+        <input id="email-button" type="button" value="Email Image" onclick="emailImg()"/>
+        <span id="email-msg" style="color:#6699ff;"></span>
+      </div>
+      <div id="wPaint-img" style="position:relative; width:240px; margin:0 auto;"></div>
 
-	<center style="margin-bottom: 50px;">
-	<input type="button" value="toggle menu" onclick="console.log($('#wPaint-demo1').wPaint('menuOrientation')); $('#wPaint-demo1').wPaint('menuOrientation', $('#wPaint-demo1').wPaint('menuOrientation') === 'vertical' ? 'horizontal' : 'vertical');"/>
-	</center>
+	  
+	  
+      <script type="text/javascript">
+        var images = [
+          '../../uploads/wPaint-test.png',
+        ];
 
-	<center id="wPaint-img"></center>
+        var msgTimer = null;
 
-	<script type="text/javascript">
-	
-	//SET DEFAULT PATH TO LOAD WPAINT ICONS
-	$('#wPaint-demo1').wPaint({
-		path: '../libraries/wPaint/'
-	});
-	
-	var images = [
-	  '/test/uploads/wPaint.png',
-	];
+        function saveImg(image) {
+          var _this = this;
 
-	function saveImg(image) {
-	  var _this = this;
+          $.ajax({
+            type: 'POST',
+            url: '../scripts/upload.php',
+            data: {image: image},
+            success: function (resp) {
 
-	  $.ajax({
-		type: 'POST',
-		url: '/test/upload.php',
-		data: {image: image},
-		success: function (resp) {
+              // internal function for displaying status messages in the canvas
+              _this._displayStatus('Image saved successfully');
 
-		  // internal function for displaying status messages in the canvas
-		  _this._displayStatus('Image saved successfully');
+              // doesn't have to be json, can be anything
+              // returned from server after upload as long
+              // as it contains the path to the image url
+              // or a base64 encoded png, either will work
+              resp = $.parseJSON(resp);
 
-		  // doesn't have to be json, can be anything
-		  // returned from server after upload as long
-		  // as it contains the path to the image url
-		  // or a base64 encoded png, either will work
-		  resp = $.parseJSON(resp);
+              // update images array / object or whatever
+              // is being used to keep track of the images
+              // can store path or base64 here (but path is better since it's much smaller)
+              images.push(resp.img);
 
-		  // update images array / object or whatever
-		  // is being used to keep track of the images
-		  // can store path or base64 here (but path is better since it's much smaller)
-		  images.push(resp.img);
+              // do something with the image
+              $('#wPaint-img').html($('<img/>').attr('src', image));
+            }
+          });
+        }
 
-		  // do something with the image
-		  $('#wPaint-img').append($('<img/>').attr('src', image));
-		}
-	  });
-	}
+        function loadImgBg () {
 
-	function loadImgBg () {
+          // internal function for displaying background images modal
+          // where images is an array of images (base64 or url path)
+          // NOTE: that if you can't see the bg image changing it's probably
+          // becasue the foregroud image is not transparent.
+          this._showFileModal('bg', images);
+        }
 
-	  // internal function for displaying background images modal
-	  // where images is an array of images (base64 or url path)
-	  // NOTE: that if you can't see the bg image changing it's probably
-	  // becasue the foregroud image is not transparent.
-	  this._showFileModal('bg', images);
-	}
+        function loadImgFg () {
 
-	function loadImgFg () {
+          // internal function for displaying foreground images modal
+          // where images is an array of images (base64 or url path)
+          this._showFileModal('fg', images);
+        }
 
-	  // internal function for displaying foreground images modal
-	  // where images is an array of images (base64 or url path)
-	  this._showFileModal('fg', images);
-	}
+        function emailImg () {
+          var email = $('#email').val();
 
-	function createCallback(cbName) {
-	  return function() {
-		if (console) {
-		  console.log(cbName, arguments);
-		}
-	  }
-	}
+          if ($.trim(email) === '') {
+            alert('enter an email!');
+            return;
+          }
 
-	// init wPaint
-	$('#wPaint-demo1').wPaint({
-	  menuOffsetLeft: -35,
-	  menuOffsetTop: -50,
-	  saveImg: saveImg,
-	  loadImgBg: loadImgBg,
-	  loadImgFg: loadImgFg,
-	  onShapeDown: createCallback('onShapeDown'),
-	  onShapeUp: createCallback('onShapeUp'),
-	  onShapeMove: createCallback('onShapeDMove')
-	});
-	</script>
+          $('#email-button').prop('disabled', true);
+          $('#email-msg').html('');
+
+          clearTimeout(msgTimer);
+
+          $.ajax({
+            type: 'POST',
+            url: 'http://sendmail.websanova.com/wpaint_email',
+            data: {
+              email: email,
+              image: $('#wPaint').wPaint('image')
+            },
+            success: function(resp) {
+              //alert('successfully emailed image!');
+            },
+            complete: function() {
+              $('#email-msg').html('Image successfully emailed.');
+              $('#email-button').prop('disabled', false);
+
+              msgTimer = setTimeout(function () {
+                $('#email-msg').html('');
+              }, 2000);
+            }
+          });
+        }
+
+		
+        // init wPaint
+        $('#wPaint').wPaint({
+          bg: '#cacaca',
+          menuOffsetLeft: -35,
+          menuOffsetTop: -50,
+          saveImg: saveImg,
+          loadImgBg: loadImgBg,
+          loadImgFg: loadImgFg,
+		  path: '../libraries/wPaint/',
+		  bg: '#FFFFFF'
+        });
+      </script>
+    </div>
 <!-- END WPAINT ____________________________________________________________________-->	
 
 	<div style="display:none;" id="blackBackground" onclick="closelogin()"></div>
