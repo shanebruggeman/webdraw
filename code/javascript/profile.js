@@ -10,39 +10,28 @@ window.onload = function(){
 	
 }
 
-var updateProfilePicture = function(username) {
+
+
+var fillinfo = function(username){
+	$('#username').html(username);
 	var packet = {
 		"username": username
 	}
-
-	//console.log("Packet sent is " + JSON.stringify(packet));
-
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
-		dataType: "html",
+		url: 'http://webdraw.csse.rose-hulman.edu/user_information.php',
+		dataType: "text",
 		data: packet,
-		success: function(data) {			
-			var noProfilePic = $("#profilepic");
-			var newSource = $(data).attr("src");
-			console.log(newSource);
-			$(noProfilePic).attr("src", newSource);
+		success: function(data1) {			
+			var data = JSON.parse(data1);
+			$('#name').html(data["first_name"] + " " + data["last_name"]);
+			$('#email').html(data['email']);	
+			//console.log(data,JSON.stringify(data));
 		},
 		error: function(request, status, error) {
 			console.log("Failed to retrieve a picture");
 		}
 	});
-}
-
-var fillinfo = function(username){
-	$('#username').html(username);
-	var firstName ="FirstName: Greatest";
-	var lastName = "LastName: Ever";
-	var email = "emailAddress@email.com";
-
-	$('#name').html(firstName + " " + lastName);
-	$('#email').html(email);
-	//console.log(username);
 }
 
 var fillmyPics = function(username){

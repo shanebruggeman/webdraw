@@ -69,3 +69,27 @@ var forkpic = function(e){
 var deletepic = function(e){
 	console.log("delete",e);
 }
+
+var updateProfilePicture = function(username) {
+	var packet = {
+		"username": username
+	}
+
+	//console.log("Packet sent is " + JSON.stringify(packet));
+
+	$.ajax({
+		type: "GET",
+		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
+		dataType: "html",
+		data: packet,
+		success: function(data) {			
+			var noProfilePic = $("#profilepic");
+			var newSource = $(data).attr("src");
+			//console.log(newSource);
+			$(noProfilePic).attr("src", newSource);
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a picture");
+		}
+	});
+}
