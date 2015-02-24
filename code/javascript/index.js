@@ -79,6 +79,8 @@ var login = function(){
 			Cookie.set("login-success", true);
 			document.getElementById('menu').innerHTML= MENU;
 			closelogin();
+			window.location.href = "profile.php"
+		$("body").innerText ='If you are not redirected automatically, follow the <a href="profile.php">link</a>';
 		},
 		error: function() {
 			//console.log("invalid parameters passed");

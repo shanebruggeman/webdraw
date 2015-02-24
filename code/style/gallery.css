@@ -1,0 +1,60 @@
+
+.content{
+	margin: 1.7em auto 1.7em auto;
+	width:80%;
+	max-width: 2020px;
+}
+
+#header-bar {
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	padding: 10px 20px;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+	height: 40px;
+}
+#header-bar label {
+	font-size: 1.3em;
+}
+
+#header-bar *{
+	vertical-align: bottom;
+}
+
+#header-bar button{
+	font-size: .7em;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
+
+#header-bar input {
+	font-size: 1.3em;
+}
+
+
+#title{
+	float:left;
+}
+
+#search {
+	float:right;
+}
+
+.gallery {
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	clear:both;
+	background-color: #5C5C5C;
+	
+}
+.gallery ul {
+
+}
+
+.gallery li {
+	display:inline;
+}

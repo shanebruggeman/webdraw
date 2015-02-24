@@ -1,33 +1,32 @@
-$(document).ready(function() {
-	console.log("hello javascript");
-	correctHeight();
-	getProfilePicture();
-});
 
-var correctHeight = function() {
-	console.log($(".wrapper"));
-	var bodyHeight = $("body").height();
-	$(".wrapper").height(bodyHeight);
+window.onload = function(){
+	onStart();
+	//FIll most recent 10
+	fillmyPics();
+	fillFriendsPics();
+	//pictureViewer(false);
 }
 
-var getProfilePicture = function() {
-	var username = Cookie.get("username");
-	console.log("username is " + username);
-
-	var packet = {
-		"username": username
-	}
-
-	$.ajax({
-		type: "POST",
-		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
-		data: packet,
-		dataType: "html",
-		success: function(data) {
-			console.log(data);
-		},
-		error: function(request, status, error) {
-			console.log("failure");
+var fillmyPics = function(){
+	var picList = $("#myPics ul");
+	for(var i = 0; i<10; i++){
+		var item = document.createElement('li');
+		item.innerHTML =  '\n <img alt="picname" src="../../resources/images/placeholder.png"> \n'; 
+		item.onclick = function() {
+			magnifyImage(this,true);
 		}
-	});
+		picList.append(item);
+		//console.log(i);
+	}
+}
+var fillFriendsPics = function(){
+	var picList = $("#friendsPics ul");
+	for(var i = 0; i<10; i++){
+		var item = document.createElement('li');
+		item.innerHTML =  '\n <img alt ="friend" src="../../resources/images/placeholder.png"> \n'; 
+		item.onclick = function() {
+			magnifyImage(this,false);
+		}
+		picList.append(item);
+	}
 }
