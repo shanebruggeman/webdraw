@@ -260,3 +260,16 @@ Accept Friend Request
 
 	Returns:
 		Nothing
+
+Unfriend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/unfriend.php',
+		dataType: false,
+		data: {
+			userid: id,
+			friendid: id
+		}
+
+	Returns:
+		Nothing
+

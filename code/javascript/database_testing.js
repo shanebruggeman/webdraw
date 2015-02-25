@@ -36,15 +36,15 @@ var getProfilePicture = function() {
 	var username = Cookie.get("username");
 
 	var packet = {
-		"requesterid": 1,
-		"requesteeid": 12
+		"userid": 1,
+		"friendid": 4
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
 		type: "POST",
-		url: "http://webdraw.csse.rose-hulman.edu/accept_friend_request.php",
+		url: "http://webdraw.csse.rose-hulman.edu/unfriend.php",
 		dataType: false,
 		data: packet,
 		success: function(data) {
