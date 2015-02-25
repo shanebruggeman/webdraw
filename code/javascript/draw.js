@@ -20,8 +20,8 @@ $(document).ready(function() {
 	  bg: '#FFFFFF'
 	});
 	
-	//var username = Cookie.get("username");
-	var username = 'bruggess';
+	var username = Cookie.get("username");
+	//var username = 'bruggess';
 	
 	var packet = {
 		"username": username
@@ -81,13 +81,16 @@ function saveImg(image) {
 	}
 
   var _this = this;
+  
+  
+    var name = prompt("Please enter an image name:", "Cool Pic");
 
   $.ajax({
 	type: 'POST',
 	url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
 	data: {
 		image: image,
-		name: 'pictureName',
+		name: name,
 		username: username
 	},
 	success: function (resp) {
