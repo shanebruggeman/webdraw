@@ -58,7 +58,6 @@ var fillmyPics = function() {
 		data: packet,
 		success: function(data) {
 			for(var id in data){
-				//console.log(data[id]);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[id]["image"]);
 				pic.attr("alt", data[id]["name"]);
@@ -76,7 +75,6 @@ var fillmyPics = function() {
 	});
 }
 var fillFriendsPics = function() {
-	console.log('hit');
 	var packet = {
 		"userid": USERID
 	}
@@ -95,7 +93,7 @@ var fillFriendsPics = function() {
 				pic.attr("data", id);
 				item.append(pic);
 				item.click(function() {
-						magnifyImage(this, OWNERSHIP);
+						magnifyImage(this, false);						
 					});
 					picList.append(item);
 			}
