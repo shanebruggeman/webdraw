@@ -37,14 +37,17 @@ var getProfilePicture = function() {
 
 	var packet = {
 		"userid": 1,
-		"pictureid": 11
+		"firstname": "Shaneson",
+		"lastname": "Bruggeman",
+		// "email": "bruggess@rose-hulman.edu",
+		// "password": "password"
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
 		type: "POST",
-		url: "http://webdraw.csse.rose-hulman.edu/set_profile_picture.php",
+		url: "http://webdraw.csse.rose-hulman.edu/update_user.php",
 		dataType: false,
 		data: packet,
 		success: function(data) {

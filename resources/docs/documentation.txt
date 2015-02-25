@@ -182,3 +182,20 @@ Set Profile Picture
 
 	Returns:
 		Nothing
+
+Update User
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/update_user.php',
+		dataType: false,
+		data:
+		ANY COMBINATION OF THESE:
+		{
+			userid : user_id (required),
+			firstname : first_name,
+			lastname: last_name,
+			email: email,
+			password: password
+		}
+
+	Return:
+		Nothing
