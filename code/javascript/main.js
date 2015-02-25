@@ -34,11 +34,7 @@ var magnifyImage = function(e, ownership) {
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
-	console.log(e.children[0].src);
-	console.log($("#forkbutton"));
 	document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
-	//$("#forkbutton").setAttribute("imgurl", e.children[0].src);
-
 }
 
 /**-----------------------------For Gallery and profile------------------------------------**/
