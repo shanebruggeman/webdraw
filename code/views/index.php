@@ -63,7 +63,8 @@
 			<br>
 			<input type="password" name="password"/>
 			<br>
-			<p id="loginError">Invalid Username or Password</p>
+			<p id="loginError" style="display:hidden;">Invalid Username or Password</p>
+			<p id="success"  style="display:hidden;">You have been registered</p>
 			<button type="submit" value="Sign in" onclick="login()">Sign In</button>
 			<!--<input class="button" type="submit" value="Sign in" onclick="login()"/>
 			-->
@@ -101,7 +102,7 @@
 			<br>
 			<p id="passwordError">Your passwords do not match</p>
 			<p id="usernameTaken">That username is already in use</p>
-			<p id="success">You have been registered</p>
+			<!--<p id="success">You have been registered</p>-->
 			<button id="sign-up" type="submit" value="Sign Up" onclick="register()">Sign Up</button>
 		</div>
 	</div>

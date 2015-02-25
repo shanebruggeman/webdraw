@@ -11,10 +11,7 @@ var fillPics = function(){
 		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
 		dataType: "json",
 		success: function(data) {
-			//console.log("successful query");
-			console.log("data",data);
 			for(var id in data){
-				console.log(data[id]);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[id]["image"]);
 				pic.attr("alt", data[id]["name"]);
