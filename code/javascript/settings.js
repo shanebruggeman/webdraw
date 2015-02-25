@@ -1,12 +1,13 @@
-
+var USERID;
 window.onload = function(){
 	onStart();
 	var username = Cookie.get("username");
 	fillFields(username);
 	updateProfilePicture(username);
-	var userid = getUserID(username);
-	fillFriends(userid);
-	fillAddFriends(userid);
+	
+	USERID = getUserID(username);
+	fillFriends(USERID);
+	fillAddFriends(USERID);
 }
 
 var fillFields = function(username){	
@@ -91,7 +92,6 @@ var fillAddFriends = function(userid) {
 					$('#unfriend').hide();
 					magnifyImage(this, true);
 				});
-				console.log(item);
 				picList.append(item);
 			}
 
@@ -106,4 +106,44 @@ var fillAddFriends = function(userid) {
 var viewProfile =  function(){
 	var redirectString = "profile.php?username="+$('#viewer-header h2').html();
 	redirect(redirectString);
+}
+
+
+var unfriend = function(e){
+	var packet = {
+		"userid": USERID,
+		"friendid": e.getAttribute('userid')
+	}
+
+	console.log(e.getAttribute('userid'));
+	$.ajax({
+		type: "POST",
+		url: 'http://webdraw.csse.rose-hulman.edu/unfriend.php',
+		data: packet,
+		success: function() {
+			fillFriends(USERID);
+			fillAddFriends(USERID);
+			closeViewer();
+		}
+	});
+}
+
+var addFriend = function(e){
+
+	var packet = {
+		"requesterid": USERID,
+		"requesteeid": e.getAttribute('userid')
+	}
+
+	console.log(e.getAttribute('userid'));
+	$.ajax({
+		type: "POST",
+		url: 'http://webdraw.csse.rose-hulman.edu/add_friend_request.php',
+		data: packet,
+		success: function() {
+			fillFriends(USERID);
+			fillAddFriends(USERID);
+			closeViewer();
+		}
+	});
 }

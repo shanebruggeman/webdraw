@@ -70,8 +70,8 @@
 				<div id="viewer-picture"></div>
 				<div id="viewer-buttons">
 					<button type="submit" value="viewProfile" onclick="viewProfile()">View Profile</button>
-					<button id="unfriend" type="submit" value="unfriend" onclick="unfriend()">Unfriend</button>
-					<button id="addfriend" type="submit" value="addfriend" onclick="addFriend()">Add Friend</button>
+					<button id="unfriend" type="submit" value="unfriend" onclick="unfriend(this)">Unfriend</button>
+					<button id="addfriend" type="submit" value="addfriend" onclick="addFriend(this)">Add Friend</button>
 				</div>
 			</div>
 		</div>

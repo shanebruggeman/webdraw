@@ -32,6 +32,12 @@ var magnifyImage = function(e, ownership) {
 	if ($('#forkbutton').length) {
 		document.getElementById("forkbutton").setAttribute("imgurl", "http://webdraw.csse.rose-hulman.edu/pictures/picture" + e.children[0].getAttribute("data") + ".png");
 	}
+	if($('#unfriend').length){
+		document.getElementById('unfriend').setAttribute("userid", e.children[0].getAttribute("data"));
+	}
+	if($('#addfriend').length){
+		document.getElementById('addfriend').setAttribute("userid", e.children[0].getAttribute("data"));
+	}
 }
 
 /**-----------------------------For Gallery and profile------------------------------------**/
