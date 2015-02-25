@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	onStart();
 	//get fork image if exists
 	if(document.getElementById('imgurl'))
 		var imgurl = document.getElementById('imgurl').src
@@ -70,29 +70,32 @@ var images = [
 
 var msgTimer = null;
 
+
+
 function saveImg(image) {
+	var username = Cookie.get("username");
+	//var username = 'bruggess';
+
+	var packet = {
+		"username": username
+	}
+
   var _this = this;
 
   $.ajax({
 	type: 'POST',
-	//url: '../scripts/upload.php',
 	url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
 	data: {
 		image: image,
 		name: 'pictureName',
-		userid: 5
+		username: username
 	},
 	success: function (resp) {
-	console.log(resp);
+		//console.log(resp);
 
 		// internal function for displaying status messages in the canvas
 		_this._displayStatus('Image saved successfully');
 		
-		//resp = $.parseJSON(resp);
-		
-		//var p = document.createElement("p");
-		//p.innerHTML = resp;
-		//document.getElementById('wPaint-img').appendChild(p);
 		alert(resp);
 	}
   });

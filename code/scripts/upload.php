@@ -13,10 +13,18 @@
 		$parentid = $_POST['parent'];
 	}
 	$picture_name = $_POST['name'];
-	$ownerid = $_POST['userid'];
+	$username = $_POST['username'];
 	
-	//print_r($_FILES["image"]);
+	// get id from user name
+	$query = $db->prepare('select id from user where username = :username');
+	$query->bindValue(':username', $username, PDO::PARAM_STR);
+	$query->execute();
+
+	$row = $query->fetch(PDO::FETCH_ASSOC);
+	$ownerid = $row["id"];
 	
+	
+
 	$profileQuery = $db->prepare('insert into picture(name,owner_id) values(:picture_name,:ownerid)');
 	$profileQuery->bindValue(':picture_name', $picture_name, PDO::PARAM_STR);
 	$profileQuery->bindValue(':ownerid', $ownerid, PDO::PARAM_STR);

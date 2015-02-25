@@ -8,7 +8,9 @@
 	
 	<!--Javascript-->
 	<script src="../libraries/jquery-2.1.3.min.js"></script>
+	<script src="http://www.webstepbook.com/Cookie.js" type="text/javascript"></script>
 	<script src="../javascript/index.js"></script>
+	<script src="../javascript/main.js"></script>
 	<script src="../javascript/draw.js"></script>
 	
 	<!-- jQuery UI -->
