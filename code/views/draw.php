@@ -55,6 +55,7 @@
 	</div>
 	
 	<?php
+		header("Access-Control-Allow-Origin: *");
 		if(isset($_GET['imgurl'])) {
 			$imgurl = $_GET['imgurl'];
 			echo '<img id="imgurl" src ="' . $imgurl . '"></img>';
