@@ -84,3 +84,19 @@ var fillFriendsPics = function() {
 		picList.append(item);
 	}
 }
+
+var setProfile = function(e){
+	var picID = $("#viewer-picture img").attr("data");
+	var packet = {
+		"username": USERNAME,
+		"pictureid": picID
+	}
+	$.ajax({
+		type: "POST",
+		url: "http://webdraw.csse.rose-hulman.edu/set_profile_picture.php",
+		data: packet,
+		success: function(){
+			location.reload();
+		}
+	});
+}
