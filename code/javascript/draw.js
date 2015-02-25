@@ -75,9 +75,11 @@ function saveImg(image) {
 
   $.ajax({
 	type: 'POST',
-	url: '../scripts/upload.php',
+	//url: '../scripts/upload.php',
+	url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
 	data: {image: image},
 	success: function (resp) {
+	console.log(resp);
 
 	  // internal function for displaying status messages in the canvas
 	  _this._displayStatus('Image saved successfully');

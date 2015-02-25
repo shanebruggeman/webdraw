@@ -30,7 +30,9 @@ var magnifyImage = function(e, ownership) {
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
-	document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
+	//document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
+	document.getElementById("forkbutton").setAttribute("imgurl", "../../database/picture"+e.children[0].getAttribute("data")+".png");
+	console.log("YOYOYOYO", e.children[0].getAttribute("data"));
 }
 
 /**-----------------------------For Gallery and profile------------------------------------**/
