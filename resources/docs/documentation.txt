@@ -236,3 +236,16 @@ Get All Friends
 
 			...
 		}
+
+Add Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/add_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id,
+		}
+
+	Returns:
+		Nothing
+

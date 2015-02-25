@@ -36,22 +36,19 @@ var getProfilePicture = function() {
 	var username = Cookie.get("username");
 
 	var packet = {
-		"userid": 1
+		"requesterid": 1,
+		"requesteeid": 12
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
-		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/get_all_friends.php",
-		dataType: "json",
+		type: "POST",
+		url: "http://webdraw.csse.rose-hulman.edu/add_friend_request.php",
+		dataType: false,
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
-			console.log(data);
-			console.log(data["doolansr"]);
-			console.log(data["greenjm"]);
-			console.log(data["nygrendr"]);
 
 			if($.isEmptyObject(data)) {
 				console.log("empty response");
