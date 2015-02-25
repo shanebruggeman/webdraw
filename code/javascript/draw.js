@@ -81,22 +81,15 @@ function saveImg(image) {
 	success: function (resp) {
 	console.log(resp);
 
-	  // internal function for displaying status messages in the canvas
-	  _this._displayStatus('Image saved successfully');
-
-	  // doesn't have to be json, can be anything
-	  // returned from server after upload as long
-	  // as it contains the path to the image url
-	  // or a base64 encoded png, either will work
-	  resp = $.parseJSON(resp);
-
-	  // update images array / object or whatever
-	  // is being used to keep track of the images
-	  // can store path or base64 here (but path is better since it's much smaller)
-	  images.push(resp.img);
-
-	  // do something with the image
-	  $('#wPaint-img').html($('<img/>').attr('src', image));
+		// internal function for displaying status messages in the canvas
+		_this._displayStatus('Image saved successfully');
+		
+		//resp = $.parseJSON(resp);
+		
+		//var p = document.createElement("p");
+		//p.innerHTML = resp;
+		//document.getElementById('wPaint-img').appendChild(p);
+		alert(resp);
 	}
   });
 }

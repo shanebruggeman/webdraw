@@ -32,7 +32,8 @@ var magnifyImage = function(e, ownership) {
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
 	document.getElementById("forkbutton").setAttribute("imgurl", "http://webdraw.csse.rose-hulman.edu/pictures/picture"+e.children[0].getAttribute("data")+".png");
-	console.log("YOYOYOYO", e.children[0].getAttribute("data"));
+	document.getElementById("deleteButton").setAttribute("id", e.children[0].getAttribute("data"));
+	console.log("Magnify", e.children[0].getAttribute("data"));
 }
 
 /**-----------------------------For Gallery and profile------------------------------------**/
@@ -60,6 +61,18 @@ var forkpic = function(e) {
 
 var deletepic = function(e) {
 	console.log("delete", e);
+	
+	var id = e.getAttribute("id");
+	console.log("id",id);
+	
+	$.ajax({
+		type: 'POST',
+		url: 'http://webdraw.csse.rose-hulman.edu/delete.php',
+		data: {id: id},
+		success: function (resp) {
+			console.log("resp",resp);
+		}
+  });
 }
 
 var updateProfilePicture = function(username) {
