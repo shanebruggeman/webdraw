@@ -16,12 +16,12 @@ var uploadImage = function(e) {
 	e.preventDefault();
 
 	var data = new FormData();
-	data.append("file", $("#file").get(0).files[0]);
+	data.append("file", $("#file_input").get(0).files[0]);
 
 	$.ajax({
 		url: "http://webdraw.csse.rose-hulman.edu/upload_image.php", // Url to which the request is send
 		type: "POST",             // Type of request to be send, called as method
-		data: data, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+		data: data, 			  // Data sent to server, a set of key/value pairs (i.e. form fields and values)
 		contentType: false,       // The content type used when sending data to the server.
 		cache: false,             // To unable request pages to be cached
 		processData:false,        // To send DOMDocument or non processed data file it is set to false
@@ -43,14 +43,18 @@ var getProfilePicture = function() {
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/user_information.php",
-		dataType: "text",
+		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
+		dataType: "json",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
-			// console.log(data);
 			console.log(data);
-			
+			// console.log(data["bear"]);
+
+			if($.isEmptyObject(data)) {
+				console.log("empty response");
+			}
+
 			// for(var pictureName in data) {
 			// 	for(var i = 0; i < data[pictureName].length; i++) {
 			// 		$("#dump_spot").append(data[pictureName][i]);

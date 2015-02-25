@@ -50,17 +50,21 @@ All User Pictures
 	Returns:
 
 	{
-		"image_name1" : [
-			imageTag,
-			imageTag,
-			imageTag
-		],
-		"image_name2" : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+		
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+
 		...
 	}
 
@@ -81,25 +85,28 @@ All User Picture IDs
 
 All Public Pictures
 	GET
-		url: 'http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php',
+		url: 'http://webdraw.csse.rose-hulman.edu/all_public_pictures.php',
 		dataType: "json",
 		...
 
 	Returns:
 
 	{
-		"image_name1", : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
-		"image_name2", : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+		
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+
 		...
 	}
 

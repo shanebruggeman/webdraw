@@ -3,8 +3,6 @@
 	include 'setdb.php';
 	$username = $_GET['username'];
 
-	echo $username;
-
 	$profileQuery = $db->prepare('select username, first_name, last_name, email from user where username = :username limit 1');
 	$profileQuery->bindValue(':username', $username, PDO::PARAM_STR);
 

@@ -8,26 +8,22 @@ var fillPics = function(){
 	$.ajax({
 		type: "GET",
 		//url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
-		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures_ids.php",
+		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
 		dataType: "json",
 		success: function(data) {
 			//console.log("successful query");
 			console.log("data",data);
-			var i=0;
-			
-			for(key in data) {
-				if(i<20) {
-					console.log(key);
-					var img = document.createElement("img");
-					img.src = "../../database/picture"+key+".png";
-					var item = document.createElement('li');
-					item.innerHTML =  '\n <img alt="picname" src="'+img.src+'"> \n'; 
-					item.onclick = function() {
-						magnifyImage(this,false);
-					}
-					picList.append(item);
-					i++;
-				}
+			for(var id in data){
+				console.log(data[id]);
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[id]["image"]);
+				pic.attr("alt", data[id]["name"]);
+				pic.attr("data", id);
+				item.append(pic);
+				item.click(function() {
+					magnifyImage(this, false);
+				});
+				picList.append(item);
 			}
 		},
 		error: function(request, status, error) {
