@@ -150,6 +150,9 @@ Add A User
 			"password": password
 		}
 
+	Returns:
+		Nothing
+
 Add An Image
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/add_picture.php',
@@ -159,3 +162,15 @@ Add An Image
 	Returns:
 		"integer as plain text" -> is the id of the image that was put in
 
+
+Set Profile Picture
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
+		dataType: false,
+		data: {
+			userid: #,
+			pictureid: #
+		}
+
+	Returns:
+		Nothing

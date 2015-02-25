@@ -1,6 +1,5 @@
 <?php 
 	header("Access-Control-Allow-Origin: *");
-
 	include 'setdb.php';
 
 	$picture_name = $_POST['name'];
