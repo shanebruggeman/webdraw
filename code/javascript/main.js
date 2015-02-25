@@ -82,3 +82,24 @@ var updateProfilePicture = function(username) {
 		}
 	});
 }
+
+var getUserID = function(username) {
+	var id = -1;
+	var packet = {
+		"username": username
+	}
+	 $.ajax({
+		type: "GET",
+		url: 'http://webdraw.csse.rose-hulman.edu/get_id_from_username.php',
+		dataType: "text",
+		data: packet,
+		async:false,
+		success: function(data) {
+			id= data;
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a userID");
+		}
+	});
+	 return id;
+}

@@ -20,7 +20,7 @@ The response to your ajax request will contain information as detailed below.
 
 __________________________________________________________________
 
-Login
+Login (used index.js)
 
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/login.php',
@@ -31,7 +31,7 @@ Login
 		none
 
 
-Profile Picture
+Profile Picture (used main.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/profile_picture.php',
 		data: {username},
@@ -41,7 +41,7 @@ Profile Picture
 	Returns:
 		HTML imageTag
 
-All User Pictures
+All User Pictures (used profile.js)
 	GET
 		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
 		data: {username},
@@ -83,7 +83,7 @@ All User Picture IDs
 		...
 	}
 
-All Public Pictures
+All Public Pictures (used galllery.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/all_public_pictures.php',
 		dataType: "json",
@@ -110,7 +110,7 @@ All Public Pictures
 		...
 	}
 
-All User Information
+All User Information (used setting.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/user_information.php',
 		dataType: "text",
@@ -171,7 +171,7 @@ Check If User Exists
 		"plain text string, 'taken' or 'available,' to inform if the given username
 		is already in the database"
 
-Set Profile Picture
+Set Profile Picture (used profile.js)
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
 		dataType: false,
@@ -210,7 +210,7 @@ Get User Id from Username
 	Returns:
 		"integer as plain text" -> id of the user with the given username
 
-Get All Friends
+Get All Friends (used setting.js --pictures don't match)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/get_all_friends.php',
 		dataType: "json",
@@ -285,7 +285,7 @@ Unfriend Request
 	Returns:
 		Nothing
 
-Find Friends
+Find Friends (used but not working setting.js --pictures don't match)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/find_friends.php',
 		dataType: "json",

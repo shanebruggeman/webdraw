@@ -5,9 +5,9 @@ window.onload = function() {
 	onStart();
 	USERNAME = Cookie.get("username");
 }
-var buildPage = function(string){
+var buildPage = function(string) {
 	USERNAME = Cookie.get("username");
-	if(typeof string != 'undefined' && string!=""){
+	if (typeof string != 'undefined' && string != "") {
 		USERNAME = string;
 		OWNERSHIP = false;
 	}
@@ -32,9 +32,9 @@ var fillinfo = function() {
 			$('#name').html(data["first_name"] + " " + data["last_name"]);
 			$('#email').html(data['email']);
 			$("#username").html(data["username"]);
-			if(!OWNERSHIP){
-				$("#my-title h1").html(data["first_name"]+"'s Pictures");
-				$("#friend-title h1").html(data["first_name"]+"'s' Friend's Pictures");
+			if (!OWNERSHIP) {
+				$("#my-title h1").html(data["first_name"] + "'s Pictures");
+				$("#friend-title h1").html(data["first_name"] + "'s' Friend's Pictures");
 			}
 		},
 		error: function(request, status, error) {
@@ -55,17 +55,17 @@ var fillmyPics = function() {
 		dataType: 'json',
 		data: packet,
 		success: function(data) {
-			for(var id in data){
-				console.log(data[id]);
+			for (var id in data) {
+				//console.log(data[id]);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[id]["image"]);
 				pic.attr("alt", data[id]["name"]);
 				pic.attr("data", id);
 				item.append(pic);
-					item.click(function() {
-						magnifyImage(this, OWNERSHIP);
-					});
-					picList.append(item);
+				item.click(function() {
+					magnifyImage(this, OWNERSHIP);
+				});
+				picList.append(item);
 			}
 		},
 		error: function(request, status, error) {
@@ -85,7 +85,7 @@ var fillFriendsPics = function() {
 	}
 }
 
-var setProfile = function(e){
+var setProfile = function(e) {
 	var picID = $("#viewer-picture img").attr("data");
 	var packet = {
 		"username": USERNAME,
@@ -95,7 +95,7 @@ var setProfile = function(e){
 		type: "POST",
 		url: "http://webdraw.csse.rose-hulman.edu/set_profile_picture.php",
 		data: packet,
-		success: function(){
+		success: function() {
 			location.reload();
 		}
 	});
