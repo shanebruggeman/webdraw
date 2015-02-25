@@ -149,3 +149,13 @@ Add A User
 			"username": username,
 			"password": password
 		}
+
+Add An Image
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/add_picture.php',
+		dataType: "text",
+		data: {image_name,owner_id}
+
+	Returns:
+		"integer as plain text" -> is the id of the image that was put in
+
