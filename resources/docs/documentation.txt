@@ -175,8 +175,9 @@ Set Profile Picture
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
 		dataType: false,
-		data: {
+		data: EITHER userid OR username {
 			userid: #,
+			username: #,
 			pictureid: #
 		}
 
