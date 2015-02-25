@@ -51,6 +51,7 @@ var magnifyImage = function(e, ownership) {
 var pictureViewer = function(ownership) {
 	$("#blackBackground").show();
 	$("#viewer-wrapper").show();
+	$("#deleteError").hide();
 	if (ownership) {
 		$("#makeProfilePic").show();
 		$("#deleteButton").show();

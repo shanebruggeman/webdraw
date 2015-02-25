@@ -47,6 +47,7 @@
 			</div>
 			<div id="viewer-content">
 				<div id="viewer-picture"></div>
+				<p id="deleteError">You cannot delete that image, it's really important!</p>
 				<div id="viewer-buttons">
 					<button id="forkbutton" type="submit" value="fork" onclick="forkpic(this)">Fork</button>
 					<button id="makeProfilePic" type="submit" value="makeProfilePic" onclick="setProfile(this)">Set as Profile Image</button>

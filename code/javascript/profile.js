@@ -113,6 +113,10 @@ var deletepic = function(e){
 		data: packet,
 		dataType: "text",
 		success: function(data){
+			if(data === "invalid"){
+				$("#deleteError").show();
+				return;
+			}
 			location.reload();
 		}
 	})
