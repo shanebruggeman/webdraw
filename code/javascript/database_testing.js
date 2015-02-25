@@ -36,14 +36,14 @@ var getProfilePicture = function() {
 	var username = Cookie.get("username");
 
 	var packet = {
-		"username": username
+		"id": 1
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
+		url: "http://webdraw.csse.rose-hulman.edu/get_image_tag_by_id.php",
 		dataType: "json",
 		data: packet,
 		success: function(data) {
