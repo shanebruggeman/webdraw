@@ -3,7 +3,7 @@
 
 	include 'setdb.php';
 
-	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = false');
+	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = true');
 
 	$queryResults = array();
 
