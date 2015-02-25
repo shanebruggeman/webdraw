@@ -77,7 +77,11 @@ function saveImg(image) {
 	type: 'POST',
 	//url: '../scripts/upload.php',
 	url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
-	data: {image: image},
+	data: {
+		image: image,
+		name: 'pictureName',
+		userid: 5
+	},
 	success: function (resp) {
 	console.log(resp);
 
