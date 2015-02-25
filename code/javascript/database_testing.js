@@ -44,11 +44,12 @@ var getProfilePicture = function() {
 
 	$.ajax({
 		type: "POST",
-		url: "http://webdraw.csse.rose-hulman.edu/add_friend_request.php",
+		url: "http://webdraw.csse.rose-hulman.edu/accept_friend_request.php",
 		dataType: false,
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
+			console.log(data);
 
 			if($.isEmptyObject(data)) {
 				console.log("empty response");

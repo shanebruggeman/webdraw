@@ -243,9 +243,20 @@ Add Friend Request
 		dataType: false,
 		data: {
 			requesterid: id,
-			requesteeid: id,
+			requesteeid: id
 		}
 
 	Returns:
 		Nothing
 
+Accept Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/accept_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id
+		}
+
+	Returns:
+		Nothing
