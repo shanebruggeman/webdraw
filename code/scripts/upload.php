@@ -3,20 +3,20 @@
 	ini_set('display_errors', 'On');
 	include 'setdb.php';
 	
+	file_put_contents("post.txt","anonymous message: ");
 	
-		
 	$image = imagecreatefrompng($_POST['image']);
 	
 	$id = uniqid();
-
-	print_r($_FILES["image"]);
+	
+	//print_r($_FILES["image"]);
 	
 	imagealphablending($image, false);
 	imagesavealpha($image, true);
-	//imagepng($image, '/pics/picture' . $id . '.png');
-	imagepng($image, '/pics/$id');
-
+	imagepng($image, 'pictures/picture'.$id.'.png');
+	
 	// return image path
 	//echo '{"img": "/pics/picture' . $id . '.png"}';
-	echo '{"img": '/pics/$id'}';
+	//echo '{"img": pictures/$id}';
+	echo "Image saved successfully";
 ?>
