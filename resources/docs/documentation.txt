@@ -311,3 +311,57 @@ Find Friends
 
 		...
 	}
+
+Get Sent Friend Requests
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/get_friend_requests_sent.php',
+		dataType: "json",
+		data: {userid}
+
+	Returns:
+
+	{
+		requestee_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		requestee_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		requestee_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		...		
+	}
+
+Get Received Friend Requests
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/get_friend_requests_received.php',
+		dataType: "json",
+		data: {userid}
+
+	Returns:
+
+	{
+		requester_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		requester_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		requester_username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		...		
+	}
