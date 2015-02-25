@@ -159,3 +159,11 @@ Add An Image
 	Returns:
 		"integer as plain text" -> is the id of the image that was put in
 
+Check If User Exists
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/check_if_user_exists.php;,
+		datatype: "text",
+		data: {"username": username}
+	Returns:
+		"plain text string, 'taken' or 'available,' to inform if the given username
+		is already in the database"
