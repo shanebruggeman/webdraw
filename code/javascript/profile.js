@@ -32,6 +32,10 @@ var fillinfo = function() {
 			$('#name').html(data["first_name"] + " " + data["last_name"]);
 			$('#email').html(data['email']);
 			$("#username").html(data["username"]);
+			if(!OWNERSHIP){
+				$("#my-title h1").html(data["first_name"]+"'s Pictures");
+				$("#friend-title h1").html(data["first_name"]+"'s' Friend's Pictures");
+			}
 		},
 		error: function(request, status, error) {
 			console.log("Failed to retrieve a picture");
@@ -62,7 +66,6 @@ var fillmyPics = function() {
 						magnifyImage(this, OWNERSHIP);
 					});
 					picList.append(item);
-				//}
 			}
 		},
 		error: function(request, status, error) {

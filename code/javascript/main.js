@@ -27,10 +27,10 @@ var clearCookies = function() {
 }
 
 var magnifyImage = function(e, ownership) {
+	
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
-	//document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
 	document.getElementById("forkbutton").setAttribute("imgurl", "http://webdraw.csse.rose-hulman.edu/pictures/picture"+e.children[0].getAttribute("data")+".png");
 	console.log("YOYOYOYO", e.children[0].getAttribute("data"));
 }
@@ -40,8 +40,10 @@ var pictureViewer = function(ownership) {
 	$("#blackBackground").show();
 	$("#viewer-wrapper").show();
 	if (ownership) {
+		$("#makeProfilePic").show();
 		$("#deleteButton").show();
 	} else {
+		$("#makeProfilePic").hide();
 		$("#deleteButton").hide();
 	}
 }
