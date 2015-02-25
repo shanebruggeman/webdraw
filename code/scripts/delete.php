@@ -1,6 +1,5 @@
 <?php
 	header("Access-Control-Allow-Origin: *");
-	ini_set('display_errors', 'On');
 	include 'setdb.php';
 	
 	$id = $_GET['id'];
@@ -13,5 +12,11 @@
 		//echo "delete GET";
 	}
 
-	//echo '{"img": pictures/$id}';
+	$delete = $db->prepare('delete from picture where id = :id');
+	$delete->bindValue(':id', $id, PDO::PARAM_STR);
+	$delete->execute();
+
+	$rowCount = $delete->rowCount();
+
+	echo $rowCount;
 ?>
