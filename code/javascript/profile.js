@@ -1,20 +1,29 @@
+var USERNAME;
+var OWNERSHIP = true;
+
 window.onload = function() {
 	onStart();
-	var username = Cookie.get("username");
-	//FIll most recent 10
-	fillmyPics(username);
-	fillFriendsPics(username);
-	updateProfilePicture(username);
-	fillinfo(username);
-
+	USERNAME = Cookie.get("username");
+}
+var buildPage = function(string){
+	console.log("build");
+	USERNAME = Cookie.get("username");
+	if(typeof string != 'undefined' && string!=""){
+		console.log("hit"+string+"..");
+		USERNAME = string;
+		OWNERSHIP = false;
+	}
+	console.log("build",username);
+	fillmyPics();
+	fillFriendsPics();
+	updateProfilePicture(USERNAME);
+	fillinfo();
 }
 
 
-
-var fillinfo = function(username) {
-	$('#username').html(username);
+var fillinfo = function() {
 	var packet = {
-		"username": username
+		"username": USERNAME
 	}
 	$.ajax({
 		type: "GET",
@@ -25,7 +34,7 @@ var fillinfo = function(username) {
 			var data = JSON.parse(data1);
 			$('#name').html(data["first_name"] + " " + data["last_name"]);
 			$('#email').html(data['email']);
-			//console.log(data,JSON.stringify(data));
+			$("#username").html(data["username"]);
 		},
 		error: function(request, status, error) {
 			console.log("Failed to retrieve a picture");
@@ -33,33 +42,27 @@ var fillinfo = function(username) {
 	});
 }
 
-var fillmyPics = function(username) {
+var fillmyPics = function() {
 	var packet = {
-		"username": username
+		"username": USERNAME
 	}
 	var picList = $("#myPics ul");
+	picList.html("");
 	$.ajax({
 		type: "GET",
 		url: 'http://webdraw.csse.rose-hulman.edu/all_user_pictures.php',
 		dataType: 'json',
 		data: packet,
 		success: function(data) {
-			//console.log(data);
 			for (var name in data) {
-				//console.log(name);
 				for (var i = 0; i < data[name].length; i++) {
-					//console.log(data[name],name.length,i);
 					var item = $('<li>\n \n</li>');
 					var pic = $(data[name][i]);
 					pic.attr("alt", name);
 					item.append(pic);
-					//item.onclick = function() {
-					//	magnifyImage(this, true);
-					//}
 					item.click(function() {
-						magnifyImage(this, true);
+						magnifyImage(this, OWNERSHIP);
 					});
-					//item.appendTo(picLi)
 					picList.append(item);
 				}
 			}
@@ -69,7 +72,7 @@ var fillmyPics = function(username) {
 		}
 	});
 }
-var fillFriendsPics = function(username) {
+var fillFriendsPics = function() {
 	var picList = $("#friendsPics ul");
 	for (var i = 0; i < 10; i++) {
 		var item = document.createElement('li');
