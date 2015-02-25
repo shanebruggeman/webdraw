@@ -5,6 +5,7 @@ window.onload = function(){
 	fillFriends();
 	fillFields(username);
 	updateProfilePicture(username);
+	fillAddFriends();
 }
 
 var fillFields = function(username){	
@@ -35,6 +36,23 @@ var fillFriends = function(){
 		var item = document.createElement('li');
 		item.innerHTML =  '\n <img alt="greenjm" src="../../resources/images/placeholder.png"> \n'; 
 		item.onclick = function() {
+			$('#addfriend').hide();
+			$('#unfriend').show();
+			magnifyImage(this,true);
+		}
+		picList.append(item);
+	}
+}
+
+
+var fillAddFriends = function(){
+	var picList = $("#addFriends ul");
+	for(var i = 0; i<10; i++){
+		var item = document.createElement('li');
+		item.innerHTML =  '\n <img alt="greenjm" src="../../resources/images/placeholder.png"> \n'; 
+		item.onclick = function() {
+			$('#addfriend').show();
+			$('#unfriend').hide();
 			magnifyImage(this,true);
 		}
 		picList.append(item);
