@@ -150,6 +150,9 @@ Add A User
 			"password": password
 		}
 
+	Returns:
+		Nothing
+
 Add An Image
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/add_picture.php',
@@ -159,6 +162,7 @@ Add An Image
 	Returns:
 		"integer as plain text" -> is the id of the image that was put in
 
+<<<<<<< HEAD
 Check If User Exists
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/check_if_user_exists.php;,
@@ -167,3 +171,17 @@ Check If User Exists
 	Returns:
 		"plain text string, 'taken' or 'available,' to inform if the given username
 		is already in the database"
+=======
+
+Set Profile Picture
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
+		dataType: false,
+		data: {
+			userid: #,
+			pictureid: #
+		}
+
+	Returns:
+		Nothing
+>>>>>>> d4f067a1b098b80d7080b91e96b85b5eee3ea59d
