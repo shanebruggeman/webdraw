@@ -2,11 +2,8 @@
 window.onload = function(){
 	onStart();
 	var username = Cookie.get("username");
-	//fillFriends(username);
 	fillFields(username);
 	updateProfilePicture(username);
-	//fillAddFriends(username);
-
 	var userid = getUserID(username);
 	fillFriends(userid);
 	fillAddFriends(userid);
@@ -47,7 +44,6 @@ var fillFriends = function(userid) {
 		dataType: 'json',
 		data: packet,
 		success: function(data) {
-			console.log(data);
 			for (var username in data) {
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[username]["image"]);
@@ -85,7 +81,6 @@ var fillAddFriends = function(userid) {
 		data: packet,
 		success: function(data) {
 			for (var username in data) {
-				//console.log('loop',username);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[username]["image"]);
 				pic.attr("alt", username);
@@ -107,21 +102,6 @@ var fillAddFriends = function(userid) {
 
 	});
 }
-
-	/**
-	var picList = $("#addFriends ul");
-	for(var i = 0; i<10; i++){
-		var item = document.createElement('li');
-		item.innerHTML =  '\n <img alt="greenjm" src="../../resources/images/placeholder.png"> \n'; 
-		item.onclick = function() {
-			$('#addfriend').show();
-			$('#unfriend').hide();
-			magnifyImage(this,true);
-		}
-		picList.append(item);
-	}**/
-
-
 
 var viewProfile =  function(){
 	var redirectString = "profile.php?username="+$('#viewer-header h2').html();

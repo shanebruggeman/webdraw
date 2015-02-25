@@ -162,12 +162,9 @@ var register = function() {
 }
 
 
-
-
 //FOR DEV testing, not for prod USED ROF LOG OUT
 var clearCookies = function(){
 	var date = new Date();
 	console.log("here");
 	Cookie.remove("username");
-	//Cookie.remove("password");
 }
