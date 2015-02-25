@@ -199,3 +199,12 @@ Update User
 
 	Return:
 		Nothing
+
+Get User Id from Username
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/get_id_from_username.php',
+		dataType: "text",
+		data: {username}
+
+	Returns:
+		"integer as plain text" -> id of the user with the given username
