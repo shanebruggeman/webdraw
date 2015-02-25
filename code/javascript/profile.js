@@ -6,14 +6,11 @@ window.onload = function() {
 	USERNAME = Cookie.get("username");
 }
 var buildPage = function(string){
-	console.log("build");
 	USERNAME = Cookie.get("username");
 	if(typeof string != 'undefined' && string!=""){
-		console.log("hit"+string+"..");
 		USERNAME = string;
 		OWNERSHIP = false;
 	}
-	console.log("build",username);
 	fillmyPics();
 	fillFriendsPics();
 	updateProfilePicture(USERNAME);
@@ -54,17 +51,18 @@ var fillmyPics = function() {
 		dataType: 'json',
 		data: packet,
 		success: function(data) {
-			for (var name in data) {
-				for (var i = 0; i < data[name].length; i++) {
-					var item = $('<li>\n \n</li>');
-					var pic = $(data[name][i]);
-					pic.attr("alt", name);
-					item.append(pic);
+			for(var id in data){
+				console.log(data[id]);
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[id]["image"]);
+				pic.attr("alt", data[id]["name"]);
+				pic.attr("data", id);
+				item.append(pic);
 					item.click(function() {
 						magnifyImage(this, OWNERSHIP);
 					});
 					picList.append(item);
-				}
+				//}
 			}
 		},
 		error: function(request, status, error) {
