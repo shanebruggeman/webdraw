@@ -57,11 +57,11 @@
 		<div id="login-form">
 			<label for="username">Username</label>
 			<br>
-			<input type="text" name="username" />
+			<input type="text" name="username" autofocus />
 			<br>
 			<label for="password">Password</label>
 			<br>
-			<input type="password" name="password"/>
+			<input type="password" name="password" autofocus/>
 			<br>
 			<p id="loginError" style="display:hidden;">Invalid Username or Password</p>
 			<p id="success"  style="display:hidden;">You have been registered</p>
@@ -76,29 +76,29 @@
 			<h2>Register</h2>
 		</div>
 		<div id="register-form">
-			<label for="first-name">First Name</label>
+			<label for="first-name" >First Name</label>
 			<br>
-			<input type="text" name="first-name" />
+			<input type="text" name="first-name" autofocus/>
 			<br>
 			<label for="last-name">Last Name</label>
 			<br>
-			<input type="text" name="last-name" />
+			<input type="text" name="last-name" autofocus/>
 			<br>
 			<label for="user">Username</label>
 			<br>
-			<input type="text" name="user" />
+			<input type="text" name="user" autofocus/>
 			<br>
 			<label for="pass">Password</label>
 			<br>
-			<input type="password" name="pass"/>
+			<input type="password" name="pass" autofocus/>
 			<br>
 			<label for="confirm">Confirm Password</label>
 			<br>
-			<input type="password" name="confirm"/>
+			<input type="password" name="confirm" autofocus/>
 			<br>
 			<label for="email">E-mail</label>
 			<br>
-			<input type="email" name="email" />
+			<input type="email" name="email" autofocus/>
 			<br>
 			<p id="passwordError">Your passwords do not match</p>
 			<p id="usernameTaken">That username is already in use</p>
