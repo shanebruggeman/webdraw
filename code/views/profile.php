@@ -49,6 +49,7 @@
 				<div id="viewer-picture"></div>
 				<div id="viewer-buttons">
 					<button id="forkbutton" type="submit" value="fork" onclick="forkpic(this)">Fork</button>
+					<button id="makeProfilePic" type="submit" value="makeProfilePic" onclick="setProfile(this)">Set as Profile Image</button>
 					<button id="deleteButton" type="submit" value="delete" onclick="deletepic(this)">Delete</button>
 				</div>
 			</div>
