@@ -20,7 +20,7 @@ The response to your ajax request will contain information as detailed below.
 
 __________________________________________________________________
 
-Login
+Login (used index.js)
 
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/login.php',
@@ -31,7 +31,7 @@ Login
 		none
 
 
-Profile Picture
+Profile Picture (used main.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/profile_picture.php',
 		data: {username},
@@ -41,7 +41,7 @@ Profile Picture
 	Returns:
 		HTML imageTag
 
-All User Pictures
+All User Pictures (used profile.js)
 	GET
 		url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
 		data: {username},
@@ -83,7 +83,7 @@ All User Picture IDs
 		...
 	}
 
-All Public Pictures
+All Public Pictures (used galllery.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/all_public_pictures.php',
 		dataType: "json",
@@ -110,7 +110,7 @@ All Public Pictures
 		...
 	}
 
-All User Information
+All User Information (used setting.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/user_information.php',
 		dataType: "text",
@@ -149,3 +149,165 @@ Add A User
 			"username": username,
 			"password": password
 		}
+
+	Returns:
+		Nothing
+
+Add An Image
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/add_picture.php',
+		dataType: "text",
+		data: {image_name,owner_id}
+
+	Returns:
+		"integer as plain text" -> is the id of the image that was put in
+
+Check If User Exists
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/check_if_user_exists.php;,
+		datatype: "text",
+		data: {"username": username}
+	Returns:
+		"plain text string, 'taken' or 'available,' to inform if the given username
+		is already in the database"
+
+Set Profile Picture (used profile.js)
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
+		dataType: false,
+		data: EITHER userid OR username {
+			userid: #,
+			username: #,
+			pictureid: #
+		}
+
+	Returns:
+		Nothing
+
+Update User
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/update_user.php',
+		dataType: false,
+		data:
+		ANY COMBINATION OF THESE:
+		{
+			userid : user_id (required),
+			firstname : first_name,
+			lastname: last_name,
+			email: email,
+			password: password
+		}
+
+	Return:
+		Nothing
+
+Get User Id from Username
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/get_id_from_username.php',
+		dataType: "text",
+		data: {username}
+
+	Returns:
+		"integer as plain text" -> id of the user with the given username
+
+Get All Friends (used setting.js --pictures don't match)
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/get_all_friends.php',
+		dataType: "json",
+		data: {userid}
+
+	Returns:
+
+		{
+			username1: {
+				id: friend_id,
+				image: profile_image_tag
+			}
+			
+			username2: {
+				id: friend_id,
+				image: profile_image_tag
+			}
+
+			username3: {
+				id: friend_id,
+				image: profile_image_tag
+			}
+
+			...
+		}
+
+Add Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/add_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id
+		}
+
+	Returns:
+		Nothing
+
+Accept Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/accept_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id
+		}
+
+	Returns:
+		Nothing
+
+Decline Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/decline_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id
+		}
+
+	Returns:
+		Nothing
+
+Unfriend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/unfriend.php',
+		dataType: false,
+		data: {
+			userid: id,
+			friendid: id
+		}
+
+	Returns:
+		Nothing
+
+Find Friends (used but not working setting.js --pictures don't match)
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/find_friends.php',
+		dataType: "json",
+		data: {userid}
+
+	Returns:
+
+	{
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		...
+	}

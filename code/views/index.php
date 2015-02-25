@@ -63,12 +63,50 @@
 			<br>
 			<input type="password" name="password"/>
 			<br>
-			<p id="loginError">Invalid Username or Password</p>
-			<button type="submit" value="Sign in" onclick="login()">Sign in</button>
+			<p id="loginError" style="display:hidden;">Invalid Username or Password</p>
+			<p id="success"  style="display:hidden;">You have been registered</p>
+			<button type="submit" value="Sign in" onclick="login()">Sign In</button>
 			<!--<input class="button" type="submit" value="Sign in" onclick="login()"/>
 			-->
+			<button id="register" type="submit" value="Register" onclick="openregister()">Register</button>
 		</div>
 	</div>
+	<div style="display:none" id="register-wrapper">
+		<div id="register-header">
+			<h2>Register</h2>
+		</div>
+		<div id="register-form">
+			<label for="first-name">First Name</label>
+			<br>
+			<input type="text" name="first-name" />
+			<br>
+			<label for="last-name">Last Name</label>
+			<br>
+			<input type="text" name="last-name" />
+			<br>
+			<label for="user">Username</label>
+			<br>
+			<input type="text" name="user" />
+			<br>
+			<label for="pass">Password</label>
+			<br>
+			<input type="password" name="pass"/>
+			<br>
+			<label for="confirm">Confirm Password</label>
+			<br>
+			<input type="password" name="confirm"/>
+			<br>
+			<label for="email">E-mail</label>
+			<br>
+			<input type="email" name="email" />
+			<br>
+			<p id="passwordError">Your passwords do not match</p>
+			<p id="usernameTaken">That username is already in use</p>
+			<!--<p id="success">You have been registered</p>-->
+			<button id="sign-up" type="submit" value="Sign Up" onclick="register()">Sign Up</button>
+		</div>
+	</div>
+
 	<div style="display:none;" id="blackBackground" onclick="closeblack()"></div>
 	<div class="footer"></div>
 </body>
