@@ -31,7 +31,7 @@ var magnifyImage = function(e, ownership) {
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
 	//document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
-	document.getElementById("forkbutton").setAttribute("imgurl", "../../database/picture"+e.children[0].getAttribute("data")+".png");
+	document.getElementById("forkbutton").setAttribute("imgurl", "http://webdraw.csse.rose-hulman.edu/pictures/picture"+e.children[0].getAttribute("data")+".png");
 	console.log("YOYOYOYO", e.children[0].getAttribute("data"));
 }
 
