@@ -110,6 +110,45 @@ var fillAddFriends = function(userid) {
 	});
 }
 
+var search = function() {
+	$("#addFriends ul").html("");
+	var userSearch = document.getElementById('searchbox').value;
+	var packet = {
+		"username": userSearch,
+		"userid": USERID
+	}
+	var picList = $("#addFriends ul");
+	picList.html("");
+	$.ajax({
+		type: 'GET',
+		url: 'http://webdraw.csse.rose-hulman.edu/search_friends_by_username.php',
+		dataType: 'json',
+		data: packet,
+		success: function(data) {
+			for (var username in data) {
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[username]["image"]);
+				pic.attr("alt", username);
+				pic.attr("data", data[username]["id"]);
+				item.append(pic);
+				item.click(function() {
+					$('#addfriend').show();
+					$('#unfriend').hide();
+					$('#acceptFriend').hide();
+					$('#rejectFriend').hide();
+					magnifyImage(this, true);
+				});
+				picList.append(item);
+			}
+
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a picture");
+		}
+
+	});
+}
+
 var fillFriendRequests = function(userid){
 	var packet = {
 		"userid": userid

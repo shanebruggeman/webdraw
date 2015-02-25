@@ -59,10 +59,8 @@
 						<div class="add">
 							<label for="username">Find Friends</label>
 							<br>
-							<input type="radio" name="keyword" value="username" checked>
-							Username
-							<input type="radio" name="keyword" value="email">Email</div>
-						<input type="text" name="username" />
+						</div>
+						<input id="searchbox" type="text" name="username" />
 						<button id="searchinput"type="submit" value="Search" onclick="search()">Search</button>
 					</div>
 				</div>
