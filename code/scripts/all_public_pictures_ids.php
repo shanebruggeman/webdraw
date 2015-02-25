@@ -2,7 +2,7 @@
 	header("Access-Control-Allow-Origin: *");
 	include 'setdb.php';
 
-	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = true');
+	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = true and picture.id != 35');
 
 	$queryResults = array();
 

@@ -83,7 +83,7 @@ All User Picture IDs
 		...
 	}
 
-All Public Pictures (used galllery.js)
+All Public Pictures
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/all_public_pictures.php',
 		dataType: "json",
@@ -110,7 +110,37 @@ All Public Pictures (used galllery.js)
 		...
 	}
 
-All User Information (used setting.js)
+Search All public Pictures By Name
+	GET
+		url: "http://webdraw.csse.rose-hulman.edu/search_public_pictures_by_name.php",
+		dataType: "json",
+		data: {
+			"name": search_name
+		}
+
+	Returns:
+
+	{
+		id : {
+			name : image_name,
+			image: image_tag
+		},
+
+		id : {
+			name : image_name,
+			image: image_tag
+		},
+
+		id : {
+			name : image_name,
+			image: image_tag
+		},
+
+		...
+	}
+
+
+All User Information
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/user_information.php',
 		dataType: "text",
