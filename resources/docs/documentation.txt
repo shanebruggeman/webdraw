@@ -261,6 +261,18 @@ Accept Friend Request
 	Returns:
 		Nothing
 
+Decline Friend Request
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/decline_friend_request.php',
+		dataType: false,
+		data: {
+			requesterid: id,
+			requesteeid: id
+		}
+
+	Returns:
+		Nothing
+
 Unfriend Request
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/unfriend.php',
@@ -272,4 +284,3 @@ Unfriend Request
 
 	Returns:
 		Nothing
-
