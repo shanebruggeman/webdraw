@@ -51,9 +51,7 @@
 					<button id="forkbutton" type="submit" value="fork" onclick="forkpic(this)">Fork</button>
 					<button id="makeProfilePic" type="submit" value="makeProfilePic" onclick="setProfile(this)">Set as Profile Image</button>
 					<button id="deleteButton" type="submit" value="delete" onclick="deletepic(this)">Delete</button>
-					<button id="profile" type="submit" value="viewProfile" onclick="viewProfile()">View Profile</button>
-					<button id="unfriend" type="submit" value="unfriend" onclick="unfriend()">Unfriend</button>
-				</div>
+					</div>
 			</div>
 		</div>
 		<div style="display:none;" id="blackBackground" onclick="closeViewer()"></div>
