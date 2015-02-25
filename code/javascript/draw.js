@@ -84,24 +84,25 @@ function saveImg(image) {
   
   
     var name = prompt("Please enter an image name:", "Cool Pic");
+	if(name!=null) {
+		$.ajax({
+		type: 'POST',
+		url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
+		data: {
+			image: image,
+			name: name,
+			username: username
+		},
+		success: function (resp) {
+			//console.log(resp);
 
-  $.ajax({
-	type: 'POST',
-	url: 'http://webdraw.csse.rose-hulman.edu/upload.php',
-	data: {
-		image: image,
-		name: name,
-		username: username
-	},
-	success: function (resp) {
-		//console.log(resp);
-
-		// internal function for displaying status messages in the canvas
-		_this._displayStatus('Image saved successfully');
-		
-		alert(resp);
-	}
-  });
+			// internal function for displaying status messages in the canvas
+			_this._displayStatus('Image saved successfully');
+			
+			alert(resp);
+		}
+		});
+  }
 }
 
 function loadImgBg () {
