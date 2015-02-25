@@ -107,7 +107,7 @@ All User Information
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/user_information.php',
 		dataType: "text",
-		data: {username}
+		data: {username},
 
 	Returns:
 

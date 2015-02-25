@@ -21,7 +21,7 @@
 		<div class="profile">
 			<img src="../../resources/images/placeholder.png" id="profilepic">
 			<div class="right">
-				<h1>Username</h1>
+				<h1 id="username">Username</h1>
 				<div class="name">
 					<input class="nameInput" id="firstName" type="text" name="firstName" >
 					<input class="nameInput" id="lastName" type="text" name="lastName"></div>

@@ -1,8 +1,6 @@
-
-
-var onStart = function(){
+var onStart = function() {
 	console.log("testing username: " + Cookie.get("username"));
-	if(Cookie.exists("username")) {
+	if (Cookie.exists("username")) {
 		console.log("success");
 	} else {
 		beforeLoggedInBar();
@@ -16,56 +14,73 @@ var onStart = function(){
 
 var beforeLoggedInBar = function() {
 	MENU = document.getElementById('menu').innerHTML;
-	document.getElementById('menu').innerHTML='<li><a id="login" href="#" onclick="openlogin()">Login</a></li>';
+	document.getElementById('menu').innerHTML = '<li><a id="login" href="#" onclick="openlogin()">Login</a></li>';
 }
 
-var redirect = function(location){
+var redirect = function(location) {
 	window.location.href = location;
-	$("body").innerText ='If you are not redirected automatically, follow the <a href="'+ location +'">link</a>';
+	$("body").innerText = 'If you are not redirected automatically, follow the <a href="' + location + '">link</a>';
 }
 
 //FOR DEV testing, not for prod USED ROF LOG OUT
-var clearCookies = function(){
+var clearCookies = function() {
 	var date = new Date();
 	console.log("here");
 	Cookie.remove("username");
 	//Cookie.remove("password");
 }
 
-var magnifyImage = function(e,ownership){
+var magnifyImage = function(e, ownership) {
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
 	$("#viewer-header h2").html($(e.innerHTML).attr("alt"));
-	console.log(e.children[0].src);
-	console.log($("#forkbutton"));
 	document.getElementById("forkbutton").setAttribute("imgurl", e.children[0].src);
-	//$("#forkbutton").setAttribute("imgurl", e.children[0].src);
-
 }
 
 /**-----------------------------For Gallery and profile------------------------------------**/
-var pictureViewer = function(ownership){
+var pictureViewer = function(ownership) {
 	$("#blackBackground").show();
 	$("#viewer-wrapper").show();
-	if(ownership){
+	if (ownership) {
 		$("#deleteButton").show();
-	}else{
+	} else {
 		$("#deleteButton").hide();
 	}
 }
 
-var closeViewer = function(){
+var closeViewer = function() {
 	$("#blackBackground").hide();
-	$("#viewer-wrapper").hide();	
+	$("#viewer-wrapper").hide();
 }
 
 //sends image url to draw page to use as starting image
-var forkpic = function(e){
+var forkpic = function(e) {
 	//console.log("fsork",e);
 	//console.log(e.getAttribute("imgurl"));
-	redirect("draw.php?imgurl="+e.getAttribute("imgurl"));
+	redirect("draw.php?imgurl=" + e.getAttribute("imgurl"));
 }
 
-var deletepic = function(e){
-	console.log("delete",e);
+var deletepic = function(e) {
+	console.log("delete", e);
+}
+
+var updateProfilePicture = function(username) {
+	var packet = {
+		"username": username
+	}
+	$.ajax({
+		type: "GET",
+		url: "http://webdraw.csse.rose-hulman.edu/profile_picture.php",
+		dataType: "html",
+		data: packet,
+		success: function(data) {
+			var newSource = $(data).attr("src");
+			if ($(data).attr("src") != "data: ;base64,") {
+				$("#profilepic").attr("src", newSource);
+			}
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a picture");
+		}
+	});
 }

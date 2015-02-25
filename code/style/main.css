@@ -161,6 +161,12 @@ input[type=checkbox]:checked ~ #menu{
 	}
 }
 /**-----------------------------For Gallery and profile------------------------------------**/
+li img {
+	width: :240px;
+	height:240px;
+}
+
+
 
 #viewer-wrapper {
 	display:inline-block;

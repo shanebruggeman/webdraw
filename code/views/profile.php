@@ -21,9 +21,9 @@
 		<div class="profile">
 			<img src="../../resources/images/placeholder.png" id="profilepic">
 			<div class="right">
-				<h1>Username</h1>
-				<h2>FirstName Last</h2>
-				<h3>emailAddress@email.com</h3>
+				<h1 id="username"></h1>
+				<h2 id="name"></h2>
+				<h3 id="email"></h3>
 			</div>
 			<div id="myPicsHeader">
 				<div id="my-title">
