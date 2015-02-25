@@ -17,7 +17,6 @@
 <body>
 	<div class="wrapper">
 		<?php include 'navbar.html' ?>
-
 		<div class="profile">
 			<img src="../../resources/images/placeholder.png" id="profilepic">
 			<div class="right">
@@ -56,5 +55,12 @@
 		</div>
 		<div style="display:none;" id="blackBackground" onclick="closeViewer()"></div>
 	</div>
+	<?php 
+		$username = "";
+		if(isset($_GET["username"])){
+			$username=$_GET["username"];			
+		}
+		echo '<script type="text/javascript">buildPage("'. $username .'");</script>'
+	?>
 </body>
 </html>

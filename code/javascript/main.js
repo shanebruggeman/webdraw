@@ -4,10 +4,7 @@ var onStart = function() {
 		console.log("success");
 	} else {
 		beforeLoggedInBar();
-		//redirect to index page
 		redirect("index.php");
-		//window.location.href = "index.php"
-		//$("body").innerText ='If you are not redirected automatically, follow the <a href="index.php">link</a>';
 		console.log("must default");
 	}
 }
@@ -27,7 +24,6 @@ var clearCookies = function() {
 	var date = new Date();
 	console.log("here");
 	Cookie.remove("username");
-	//Cookie.remove("password");
 }
 
 var magnifyImage = function(e, ownership) {
@@ -55,8 +51,6 @@ var closeViewer = function() {
 
 //sends image url to draw page to use as starting image
 var forkpic = function(e) {
-	//console.log("fsork",e);
-	//console.log(e.getAttribute("imgurl"));
 	redirect("draw.php?imgurl=" + e.getAttribute("imgurl"));
 }
 
