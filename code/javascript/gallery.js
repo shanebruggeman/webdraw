@@ -8,7 +8,7 @@ var fillPics = function(){
 	$.ajax({
 		type: "GET",
 		//url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
-		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures_ids.php",
+		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
 		dataType: "json",
 		success: function(data) {
 			//console.log("successful query");
@@ -19,7 +19,7 @@ var fillPics = function(){
 				if(i<20) {
 					console.log(key);
 					var img = document.createElement("img");
-					img.src = "../../database/picture"+key+".png";
+					img.src = "webdraw.csse.rose-hulman.edu/pictures/picture"+key+".png";
 					var item = document.createElement('li');
 					item.innerHTML =  '\n <img alt="picname" src="'+img.src+'"> \n'; 
 					item.onclick = function() {
@@ -27,6 +27,8 @@ var fillPics = function(){
 					}
 					picList.append(item);
 					i++;
+				} else {
+					break;
 				}
 			}
 		},
