@@ -41,11 +41,13 @@ var closeblack = function(){
 	$('#login-wrapper').hide();
 	$("#viewer-wrapper").hide();
 	$("#register-wrapper").hide();
+	$("#success").hide();
 }
 
 var openlogin = function(){
 	$("#blackBackground").show();
 	$('#login-wrapper').show();
+	$("#loginError").hide();
 }
 
 var openregister = function(){
@@ -152,10 +154,15 @@ var register = function() {
 		url: "http://webdraw.csse.rose-hulman.edu/add_user.php",
 		data: packet,
 		success: function() {
+			$("#register-wrapper").hide();
+			$('#login-wrapper').show();
 			$("#success").show();
 		}
 	})
 }
+
+
+
 
 //FOR DEV testing, not for prod USED ROF LOG OUT
 var clearCookies = function(){
