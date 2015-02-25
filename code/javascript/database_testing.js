@@ -36,19 +36,16 @@ var getProfilePicture = function() {
 	var username = Cookie.get("username");
 
 	var packet = {
-		"firstname":"test",
-		"lastname":"user",
-		"email":"testuser2@rose-hulman.edu",
-		"username":"testuser2",
-		"password":"password"
+		"name": "deletemeimage",
+		"userid": 1
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
 		type: "POST",
-		url: "http://webdraw.csse.rose-hulman.edu/add_user.php",
-		dataType: false,
+		url: "http://webdraw.csse.rose-hulman.edu/find_friends_by_username.php",
+		dataType: "text",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
