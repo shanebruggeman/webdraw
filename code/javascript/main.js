@@ -102,3 +102,8 @@ var getUserID = function(username) {
 	});
 	 return id;
 }
+
+var viewProfile =  function(){
+	var redirectString = "profile.php?username="+$('#viewer-header h2').html();
+	redirect(redirectString);
+}

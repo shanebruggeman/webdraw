@@ -64,6 +64,8 @@ var fillmyPics = function() {
 				item.append(pic);
 				item.click(function() {
 					magnifyImage(this, OWNERSHIP);
+					$("#profile").hide();
+					$("#unfriend").hide();
 				});
 				picList.append(item);
 			}
@@ -75,13 +77,56 @@ var fillmyPics = function() {
 }
 var fillFriendsPics = function() {
 	var picList = $("#friendsPics ul");
-	for (var i = 0; i < 10; i++) {
-		var item = document.createElement('li');
-		item.innerHTML = '\n <img alt ="friend" src="../../resources/images/placeholder.png"> \n';
-		item.onclick = function() {
-			magnifyImage(this, false);
+	var userid;
+	var packet = {
+		"username": USERNAME
+	}
+	userid = $.ajax({
+		url: "http://webdraw.csse.rose-hulman.edu/get_id_from_username.php",
+		datatype: "text",
+		data: packet,
+		async: false
+	}).responseText;
+
+	var packet2 = {
+		"userid": userid
+	}
+	var json = $.ajax({
+		url: "http://webdraw.csse.rose-hulman.edu/get_all_friends.php",
+		dataType: "json",
+		data: packet2,
+		async: false
+	}).responseText;
+	json = $.parseJSON(json);
+	var array = [];
+	for(var id in json){
+		array.push(id);
+	}
+	for(var i = 0; i < array.length; i++){
+		var packet3 = {
+			"username": array[i]
 		}
-		picList.append(item);
+		$.ajax({
+			url: "http://webdraw.csse.rose-hulman.edu/all_user_pictures.php",
+			dataType: "json",
+			data: packet3,
+			success: function(data){
+				for (var id in data) {
+				//console.log(data[id]);
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[id]["image"]);
+				pic.attr("alt", data[id]["name"]);
+				pic.attr("data", id);
+				item.append(pic);
+				item.click(function() {
+					magnifyImage(this, false);
+					$("#profile").hide();
+					$("#unfriend").hide();
+				});
+				picList.append(item);
+			}
+			}
+		});
 	}
 }
 
