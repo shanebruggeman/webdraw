@@ -46,15 +46,14 @@
 }
 
 .gallery {
+	width:100%;
 	text-align: center;
 	display: inline-block;
-	padding: 10px;
 	clear:both;
 	background-color: #5C5C5C;
-	
 }
-.gallery ul {
 
+.gallery ul {
 }
 
 .gallery li {
