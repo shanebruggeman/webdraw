@@ -47,14 +47,9 @@
 	border-radius: 2px 2px 2px 2px;
 }
 
-.addFriends{
+/**Scroll image boxes **/
+.scroll-header {
 	margin-top:10px;
-}
-
-
-
-/**FRIENDS**/
-#friends-header  {
 	clear:both;
 	width:100%;
 	height: auto;
@@ -67,15 +62,15 @@
 
 	overflow: auto;
 }
-#friends-header  label {
+.scroll-header  label {
 	font-size: 1.3em;
 }
 
-#friends-header  * {
+.scroll-header * {
 	vertical-align: bottom;
 }
 
-#friends-header  button {
+.scroll-header  button {
 	font-size: .7em;
 	padding: 5px 15px;
 	background-color: #EEE;
@@ -89,11 +84,11 @@
 	width: 100px;
 }
 
-#title {
+.title{
 	float:left;
 }
 
-#search {
+.search {
 	float:right;
 }
 

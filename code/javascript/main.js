@@ -41,6 +41,12 @@ var magnifyImage = function(e, ownership) {
 	if ($('#deleteButton').length) {
 		document.getElementById("deleteButton").setAttribute("id", e.children[0].getAttribute("data"));
 	}
+	if($('#acceptFriend').length){
+		document.getElementById('acceptFriend').setAttribute("userid", e.children[0].getAttribute("data"));
+	}
+	if ($('#rejectFriend').length) {
+		document.getElementById("rejectFriend").setAttribute("userid", e.children[0].getAttribute("data"));
+	}
 }
 var pictureViewer = function(ownership) {
 	$("#blackBackground").show();

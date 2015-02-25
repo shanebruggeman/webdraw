@@ -31,8 +31,8 @@
 				<button id="saveProfile"type="submit" value="profile" onclick="saveProfile()">Save</button>
 			</div>
 			<div class="myfriends">
-				<div id="friends-header">
-					<div id="title">
+				<div class="scroll-header" id="friends-header">
+					<div class="title">
 						<h1>Friends</h1>
 					</div>
 				</div>
@@ -40,12 +40,22 @@
 					<ul></ul>
 				</div>
 			</div>
+			<div style="display:none;" id="friendRequests"><!---->
+				<div class="scroll-header" id="requests-header">
+					<div class="title">
+						<h1>Friend Requests</h1>
+					</div>
+				</div>
+				<div class ="gallery" id="requestPics">
+					<ul></ul>
+				</div>
+			</div>			
 			<div class="addFriends">
-				<div id="friends-header">
-					<div id="title">
+				<div class="scroll-header" id="friends-header">
+					<div class="title">
 						<h1>Add Friends</h1>
 					</div>
-					<div id="search">
+					<div class="search">
 						<div class="add">
 							<label for="username">Find Friends</label>
 							<br>
@@ -72,6 +82,8 @@
 					<button type="submit" value="viewProfile" onclick="viewProfile()">View Profile</button>
 					<button id="unfriend" type="submit" value="unfriend" onclick="unfriend(this)">Unfriend</button>
 					<button id="addfriend" type="submit" value="addfriend" onclick="addFriend(this)">Add Friend</button>
+					<button id="acceptFriend" type="submit" value="acceptFriend" onclick="acceptFriend(this)">Accept Request</button>
+					<button id="rejectFriend" type="submit" value="rejectFriend" onclick="rejectFriend(this)">Reject Request</button>
 				</div>
 			</div>
 		</div>

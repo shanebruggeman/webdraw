@@ -339,7 +339,7 @@ Get Sent Friend Requests
 		...		
 	}
 
-Get Received Friend Requests
+Get Received Friend Requests (used settings.js)
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/get_friend_requests_received.php',
 		dataType: "json",

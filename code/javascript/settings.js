@@ -8,6 +8,11 @@ window.onload = function(){
 	USERID = getUserID(username);
 	fillFriends(USERID);
 	fillAddFriends(USERID);
+	fillFriendRequests(USERID);
+	setInterval(function(){
+		fillFriends(USERID);
+		fillFriendRequests(USERID);
+	},20000);
 }
 
 var fillFields = function(username){	
@@ -54,6 +59,8 @@ var fillFriends = function(userid) {
 				item.click(function() {
 					$('#addfriend').hide();
 					$('#unfriend').show();
+					$('#acceptFriend').hide();
+					$('#rejectFriend').hide();					
 					magnifyImage(this, true);
 				});
 				picList.append(item);
@@ -90,6 +97,8 @@ var fillAddFriends = function(userid) {
 				item.click(function() {
 					$('#addfriend').show();
 					$('#unfriend').hide();
+					$('#acceptFriend').hide();
+					$('#rejectFriend').hide();
 					magnifyImage(this, true);
 				});
 				picList.append(item);
@@ -101,6 +110,48 @@ var fillAddFriends = function(userid) {
 		}
 
 	});
+}
+
+var fillFriendRequests = function(userid){
+	var packet = {
+		"userid": userid
+	}
+	var picList = $("#requestPics ul");
+	picList.html("");
+	$.ajax({
+		type: 'GET',
+		url: 'http://webdraw.csse.rose-hulman.edu/get_friend_requests_received.php',
+		dataType: 'json',
+		data: packet,
+		success: function(data) {
+			for (var username in data) {
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[username]["image"]);
+				pic.attr("alt", username);
+				pic.attr("data", data[username]["id"]);
+				item.append(pic);
+				item.click(function() {
+					$('#addfriend').hide();
+					$('#unfriend').hide();
+					$('#acceptFriend').show();
+					$('#rejectFriend').show();					
+					magnifyImage(this, true);
+				});
+				picList.append(item);
+			}
+			if(jQuery.isEmptyObject(data)){
+				$("#friendRequests").hide();
+			}
+			else{
+				$("#friendRequests").show();
+			}
+
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a picture");
+		}
+	});	
+
 }
 
 var viewProfile =  function(){
@@ -143,6 +194,45 @@ var addFriend = function(e){
 		success: function() {
 			fillFriends(USERID);
 			fillAddFriends(USERID);
+			closeViewer();
+		}
+	});
+}
+
+var acceptFriend = function(e){
+	var packet = {
+		"requesteeid": USERID,
+		"requesterid": e.getAttribute('userid')
+	}
+
+	console.log(e.getAttribute('userid'));
+	$.ajax({
+		type: "POST",
+		dataType: false,
+		url: 'http://webdraw.csse.rose-hulman.edu/accept_friend_request.php',
+		data: packet,
+		success: function() {
+			fillFriends(USERID);
+			fillFriendRequests(USERID);
+			closeViewer();
+		}
+	});
+}
+
+var rejectFriend = function(e){
+	var packet = {
+		"requesteeid": USERID,
+		"requesterid": e.getAttribute('userid')
+	}
+	console.log(packet);
+	$.ajax({
+		type: "POST",
+		dataType: false,
+		url: 'http://webdraw.csse.rose-hulman.edu/decline_friend_request.php',
+		data: packet,
+		success: function() {
+			fillFriends(USERID);
+			fillFriendRequests(USERID);
 			closeViewer();
 		}
 	});
