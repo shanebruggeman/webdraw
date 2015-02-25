@@ -50,17 +50,21 @@ All User Pictures
 	Returns:
 
 	{
-		"image_name1" : [
-			imageTag,
-			imageTag,
-			imageTag
-		],
-		"image_name2" : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+		
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+
+		id: {
+			"name" : name,
+			"image" : image_tag
+		},
+
 		...
 	}
 
@@ -88,18 +92,21 @@ All Public Pictures
 	Returns:
 
 	{
-		"image_name1", : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
-		"image_name2", : [
-			imageTag,
-			imageTag,
-			imageTag,
-			...
-		],
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+		
+		id {
+			"name" : image_name,
+			"image": image_tag
+		},
+
 		...
 	}
 

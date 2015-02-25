@@ -25,15 +25,12 @@
 	$images = array();
 
 	foreach ($queryResults as $filename => $idArray) {
-		// $images[$filename] = array();
+		$images[$filename] = array();
 
 		for($i = 0; $i < count($idArray); $i++) {
 			$currentId = $queryResults[$filename][$i];
 			$path = 'pictures/picture' . $currentId . '.png';
-
-			$images[$currentId] = array();
-			$images[$currentId]["name"] = $filename;
-
+	
 			// Read path path, convert to base64 encoding
 			$imageData = base64_encode(file_get_contents($path));
 
@@ -42,7 +39,7 @@
 
 			// Echo out a sample path
 			$imageHTML = '<img src="' . $src . '" alt="' . $currentId . '" />';
-			$images[$currentId]["image"] = $imageHTML;
+			array_push($images[$filename], $imageHTML);
 		}
 	}
 

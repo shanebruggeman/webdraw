@@ -3,7 +3,7 @@
 
 	include 'setdb.php';
 
-	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = true');
+	$profileQuery = $db->prepare('select picture.id, picture.name from user join picture on user.id = picture.owner_id where picture.public = true limit 25');
 
 	$queryResults = array();
 
@@ -26,6 +26,10 @@
 
 		for($i = 0; $i < count($idArray); $i++) {
 			$currentId = $queryResults[$filename][$i];
+
+			$images[$currentId] = array();
+			$images[$currentId]["name"] = $filename;
+
 			$path = 'pictures/picture' . $currentId . '.png';
 	
 			// Read path path, convert to base64 encoding
@@ -36,7 +40,8 @@
 
 			// Echo out a sample path
 			$imageHTML = "<img src=\"$src\" alt=\"\" />";
-			array_push($images[$filename], $imageHTML);
+			
+			$images[$currentId]["image"] = $imageHTML;
 		}
 	}
 
