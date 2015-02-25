@@ -395,3 +395,32 @@ Get Received Friend Requests (used settings.js)
 
 		...		
 	}
+
+Search Friends By Username
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/search_friends_by_username.php',
+		dataType: "json",
+		data: {
+			username: username,
+			userid: userid
+		}
+	Returns:
+	
+	{
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		...
+	}
