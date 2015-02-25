@@ -284,3 +284,30 @@ Unfriend Request
 
 	Returns:
 		Nothing
+
+Find Friends
+	GET
+		url: 'http://webdraw.csse.rose-hulman.edu/find_friends.php',
+		dataType: "json",
+		data: {userid}
+
+	Returns:
+
+	{
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		username : {
+			id: potential_friend_id,
+			image: profile_image_tag
+		},
+
+		...
+	}
