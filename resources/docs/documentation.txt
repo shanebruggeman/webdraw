@@ -137,3 +137,15 @@ Get Picture By Id
 		path: picture_path,
 		image: image_tag
 	}
+
+Add A User
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/add_user.php',
+		dataType: false,
+		data: {
+			"firstname": firstname,
+			"lastname": lastname,
+			"email": email,
+			"username": username,
+			"password": password
+		}
