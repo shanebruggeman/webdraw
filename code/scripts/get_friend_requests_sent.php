@@ -19,7 +19,7 @@
 	    	$results[$friend_username] = array();
 	    	$results[$friend_username]["id"] = $friend_id;
 
-	    	$path = 'pictures/picture' . $friend_id . '.png';
+	    	$path = 'pictures/picture' . $friend_pic_id . '.png';
 	
 			// Read path path, convert to base64 encoding
 			$imageData = base64_encode(file_get_contents($path));

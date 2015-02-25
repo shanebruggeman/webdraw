@@ -28,8 +28,8 @@
 				</div>
 				<div id="search">
 					<label for="picname">Picture Name</label>
-					<input type="text" name="name" />
-					<button type="submit" value="Search" onclick="search()">Search</button>
+					<input type="text" name="searchterm" />
+					<button type="submit" value="Search" onclick="searchPublic()">Search</button>
 				</div>
 			</div>
 			<div class="gallery">

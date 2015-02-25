@@ -24,8 +24,8 @@
 				</div>
 				<div id="search">
 					<label for="username">Picture Name</label>
-					<input type="text" name="username" />		
-					<button type="submit" value="Search" onclick="search()">Search</button>
+					<input type="text" name="searchterm" />
+					<button type="submit" value="Search" onclick="searchPublic()">Search</button>
 				</div>
 			</div>
 			<div class="gallery" id="myPics">

@@ -240,7 +240,7 @@ Get User Id from Username
 	Returns:
 		"integer as plain text" -> id of the user with the given username
 
-Get All Friends (used setting.js --pictures don't match)
+Get All Friends
 	GET
 		url: 'http://webdraw.csse.rose-hulman.edu/get_all_friends.php',
 		dataType: "json",
