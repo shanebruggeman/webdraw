@@ -24,15 +24,12 @@
 				</div>
 				<div id="search">
 					<label for="username">Picture Name</label>
-					<input type="text" name="username" />
+					<input type="text" name="username" />		
 					<button type="submit" value="Search" onclick="search()">Search</button>
 				</div>
 			</div>
-			<div class="gallery">
-				<div class="galleryimage"></div>
-				<div class="gallery" id="myPics">
-					<ul></ul>
-				</div>
+			<div class="gallery" id="myPics">
+				<ul></ul>
 			</div>
 		</div>
 		<div id="viewer-wrapper" style="display:none;">
