@@ -13,23 +13,17 @@ var fillPics = function(){
 		success: function(data) {
 			//console.log("successful query");
 			console.log("data",data);
-			var i=0;
-			
-			for(key in data) {
-				if(i<20) {
-					console.log(key);
-					var img = document.createElement("img");
-					img.src = "webdraw.csse.rose-hulman.edu/pictures/picture"+key+".png";
-					var item = document.createElement('li');
-					item.innerHTML =  '\n <img alt="picname" src="'+img.src+'"> \n'; 
-					item.onclick = function() {
-						magnifyImage(this,false);
-					}
-					picList.append(item);
-					i++;
-				} else {
-					break;
-				}
+			for(var id in data){
+				console.log(data[id]);
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[id]["image"]);
+				pic.attr("alt", data[id]["name"]);
+				pic.attr("data", id);
+				item.append(pic);
+				item.click(function() {
+					magnifyImage(this, false);
+				});
+				picList.append(item);
 			}
 		},
 		error: function(request, status, error) {
