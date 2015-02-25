@@ -1,10 +1,7 @@
 var onStart = function() {
-	if (Cookie.exists("username")) {
-		console.log("success");
-	} else {
+	if (!Cookie.exists("username")) {
 		beforeLoggedInBar();
 		redirect("index.php");
-		console.log("must default");
 	}
 }
 
@@ -18,10 +15,8 @@ var redirect = function(location) {
 	$("body").innerText = 'If you are not redirected automatically, follow the <a href="' + location + '">link</a>';
 }
 
-//FOR DEV testing, not for prod USED ROF LOG OUT
 var clearCookies = function() {
 	var date = new Date();
-	console.log("here");
 	Cookie.remove("username");
 }
 /**-----------------------------For Gallery and profile------------------------------------**/
@@ -51,6 +46,7 @@ var magnifyImage = function(e, ownership) {
 var pictureViewer = function(ownership) {
 	$("#blackBackground").show();
 	$("#viewer-wrapper").show();
+	$("#deleteError").hide();
 	if (ownership) {
 		$("#makeProfilePic").show();
 		$("#deleteButton").show();

@@ -38,7 +38,6 @@ var fillFields = function(username){
 }
 
 var fillFriends = function(userid) {
-	/**Doesn't Appear To Return Data?---ON HOLD**/
 	var packet = {
 		"userid": userid
 	}
@@ -76,7 +75,6 @@ var fillFriends = function(userid) {
 
 
 var fillAddFriends = function(userid) {
-	/**Doesn't Appear To Return Data?---ON HOLD**/
 	var packet = {
 		"userid": userid
 	}

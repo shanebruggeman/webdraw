@@ -1,5 +1,6 @@
 var USERNAME;
 var OWNERSHIP = true;
+var USERID;
 
 window.onload = function() {
 	onStart();
@@ -12,9 +13,10 @@ var buildPage = function(string){
 		OWNERSHIP = false;
 	}
 	fillmyPics();
-	fillFriendsPics();
 	updateProfilePicture(USERNAME);
 	fillinfo();
+	USERID = getUserID(USERNAME);
+	fillFriendsPics();
 }
 
 
@@ -56,7 +58,6 @@ var fillmyPics = function() {
 		data: packet,
 		success: function(data) {
 			for(var id in data){
-				//console.log(data[id]);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[id]["image"]);
 				pic.attr("alt", data[id]["name"]);
@@ -74,15 +75,33 @@ var fillmyPics = function() {
 	});
 }
 var fillFriendsPics = function() {
-	var picList = $("#friendsPics ul");
-	for (var i = 0; i < 10; i++) {
-		var item = document.createElement('li');
-		item.innerHTML = '\n <img alt ="friend" src="../../resources/images/placeholder.png"> \n';
-		item.onclick = function() {
-			magnifyImage(this, false);
-		}
-		picList.append(item);
+	var packet = {
+		"userid": USERID
 	}
+	var picList = $("#friendsPics ul");
+	picList.html("");
+	$.ajax({
+		type: "GET",
+		url: 'http://webdraw.csse.rose-hulman.edu/all_friends_pictures.php',
+		dataType: 'json',
+		data: packet,
+		success: function(data) {
+			for(var id in data){
+				var item = $('<li>\n \n</li>');
+				var pic = $(data[id]["image"]);
+				pic.attr("alt", data[id]["name"]);
+				pic.attr("data", id);
+				item.append(pic);
+				item.click(function() {
+						magnifyImage(this, false);						
+					});
+					picList.append(item);
+			}
+		},
+		error: function(request, status, error) {
+			console.log("Failed to retrieve a picture");
+		}
+	});
 }
 
 var setProfile = function(e){
@@ -113,6 +132,10 @@ var deletepic = function(e){
 		data: packet,
 		dataType: "text",
 		success: function(data){
+			if(data === "invalid"){
+				$("#deleteError").show();
+				return;
+			}
 			location.reload();
 		}
 	})

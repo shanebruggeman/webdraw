@@ -3,7 +3,15 @@
 	include 'setdb.php';
 	
 	$id = $_GET['id'];
-	
+
+	if($id == '35'){
+		echo "invalid";
+		return;
+	}
+
+	$update = $db->prepare("update user set profile_pic_id='35' where profile_pic_id = :id");
+	$update->bindValue(':id', $id, PDO::PARAM_STR);
+	$update->execute();
 	//echo "delete";
 	unlink('pictures/picture'.$id.'.png');
 	
