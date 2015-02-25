@@ -60,8 +60,6 @@
 			$imgurl = $_GET['imgurl'];
 			echo '<img id="imgurl" src ="' . $imgurl . '"></img>';
 		}
-	
-	
 	?>
 	
 <!-- BEGIN WPAINT __________________________________________________________________-->

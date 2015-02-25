@@ -24,7 +24,7 @@ var clearCookies = function() {
 	console.log("here");
 	Cookie.remove("username");
 }
-
+/**-----------------------------For Gallery and profile------------------------------------**/
 var magnifyImage = function(e, ownership) {
 	document.getElementById("viewer-picture").innerHTML = e.innerHTML;
 	pictureViewer(ownership);
@@ -38,9 +38,10 @@ var magnifyImage = function(e, ownership) {
 	if($('#addfriend').length){
 		document.getElementById('addfriend').setAttribute("userid", e.children[0].getAttribute("data"));
 	}
+	if ($('#deleteButton').length) {
+		document.getElementById("deleteButton").setAttribute("id", e.children[0].getAttribute("data"));
+	}
 }
-
-/**-----------------------------For Gallery and profile------------------------------------**/
 var pictureViewer = function(ownership) {
 	$("#blackBackground").show();
 	$("#viewer-wrapper").show();
@@ -65,6 +66,18 @@ var forkpic = function(e) {
 
 var deletepic = function(e) {
 	console.log("delete", e);
+	
+	var id = e.getAttribute("id");
+	console.log("id",id);
+	
+	$.ajax({
+		type: 'POST',
+		url: 'http://webdraw.csse.rose-hulman.edu/delete.php',
+		data: {id: id},
+		success: function (resp) {
+			console.log("resp",resp);
+		}
+  });
 }
 
 var updateProfilePicture = function(username) {
@@ -107,4 +120,9 @@ var getUserID = function(username) {
 		}
 	});
 	 return id;
+}
+
+var viewProfile =  function(){
+	var redirectString = "profile.php?username="+$('#viewer-header h2').html();
+	redirect(redirectString);
 }

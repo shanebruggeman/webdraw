@@ -2,9 +2,9 @@ $(document).ready(function() {
 	correctHeight();
 	getProfilePicture();
 
-	$("#uploadimage").submit(function(e){
-		uploadImage(e);
-	});
+	// $("#uploadimage").submit(function(e){
+	// 	uploadImage(e);
+	// });
 });
 
 var correctHeight = function() {
@@ -36,20 +36,20 @@ var getProfilePicture = function() {
 	var username = Cookie.get("username");
 
 	var packet = {
-		"userid": 2
+		"userid": 1
 	}
 
 	console.log("Packet sent is " + JSON.stringify(packet));
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/find_friends.php",
+		url: "http://webdraw.csse.rose-hulman.edu/get_friend_requests_received.php",
 		dataType: "json",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
-			console.log(data);
-			console.log(data["anderson"]);
+			console.log(data["mranderson"]);
+			// $("#dump_spot").append($(data));
 
 			if($.isEmptyObject(data)) {
 				console.log("empty response");
