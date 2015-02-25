@@ -4,7 +4,7 @@
 
 	$userid = $_GET['userid'];
 
-	$query = $db->prepare('select user.id, user.username, user.profile_pic_id from (select user.id from user where user.id not in (select user.id from((select requester_id as id from friend_request where requestee_id = :userid) union (select requestee_id from friend_request where requester_id = :userid) order by id asc) as friends join user on user.id = friends.id) and user.id != :userid) as nonaffiliated join user on user.id = nonaffiliated.id');
+	$query = $db->prepare('select user.id, user.username, user.profile_pic_id from (select user.id from user where user.id not in (select user.id from((select requester_id as id from friend_request where requestee_id = :userid) union (select requestee_id from friend_request where requester_id = :userid) order by id asc) as friends join user on user.id = friends.id) and user.id != :userid and user.id != 3) as nonaffiliated join user on user.id = nonaffiliated.id');
 	$query->bindValue(':userid', $userid, PDO::PARAM_STR);
 	$query->execute();
 
@@ -21,7 +21,7 @@
 	    	$results[$not_friend_username] = array();
 	    	$results[$not_friend_username]["id"] = $not_friend_id;
 
-	    	$path = 'pictures/picture' . $not_friend_id . '.png';
+	    	$path = 'pictures/picture' . $not_friend_pic_id . '.png';
 	
 			// Read path path, convert to base64 encoding
 			$imageData = base64_encode(file_get_contents($path));

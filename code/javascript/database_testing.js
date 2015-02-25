@@ -43,13 +43,13 @@ var getProfilePicture = function() {
 
 	$.ajax({
 		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/get_friend_requests_received.php",
+		url: "http://webdraw.csse.rose-hulman.edu/find_friends.php",
 		dataType: "json",
 		data: packet,
 		success: function(data) {
 			console.log("successful query");
-			console.log(data["mranderson"]);
-			// $("#dump_spot").append($(data));
+			console.log(data["anderson"]);
+			$("#dump_spot").append($(data["anderson"]["image"]));
 
 			if($.isEmptyObject(data)) {
 				console.log("empty response");

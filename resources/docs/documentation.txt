@@ -153,7 +153,7 @@ Add A User
 	Returns:
 		Nothing
 
-Add An Image
+Add A Picture
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/add_picture.php',
 		dataType: "text",
