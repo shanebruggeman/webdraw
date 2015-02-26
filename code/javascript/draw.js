@@ -29,36 +29,6 @@ $(document).ready(function() {
 	
 	var images = {};
 	
-	/*$.ajax({
-		type: "GET",
-		url: "http://webdraw.csse.rose-hulman.edu/all_user_picture_ids.php",
-		dataType: "json",
-		data: packet,
-		success: function(data) {
-			console.log("successful query");
-			console.log(data);
-			
-			var img = document.createElement("img");
-			img.src = "http://webdraw.csse.rose-hulman.edu/pictures/picture1.png";
-			$("#wPaint-img").append(img);
-			
-			
-			$("#wPaint-img").append("<img url = http://webdraw.csse.rose-hulman.edu/pictues/"+"picture1.png>"+"</img>");
-			
-			for(var pictureName in data) {
-				for(var i = 0; i < data[pictureName].length; i++) {
-					var img = document.createElement("img");
-					img.src = "http://webdraw.csse.rose-hulman.edu/pictures/" + data[pictureName];
-					$("#wPaint-img").append(img);
-			 		$("#wPaint-img").append("<img url = \"http://webdraw.csse.rose-hulman.edu/pictues/"+data[pictureName][i]+"</img>");
-			 	}
-			 }
-		},
-		error: function(request, status, error) {
-			console.log("Failure");
-		}
-	});*/
-	
 	
 });
 
@@ -74,7 +44,6 @@ var msgTimer = null;
 
 function saveImg(image) {
 	var username = Cookie.get("username");
-	//var username = 'bruggess';
 
 	var packet = {
 		"username": username
@@ -94,7 +63,6 @@ function saveImg(image) {
 			username: username
 		},
 		success: function (resp) {
-			//console.log(resp);
 
 			// internal function for displaying status messages in the canvas
 			_this._displayStatus('Image saved successfully');
@@ -118,7 +86,6 @@ function loadImgFg () {
 
   // internal function for displaying foreground images modal
   // where images is an array of images (base64 or url path)
-  console.log("loadImgFg");
   this._showFileModal('fg', images);
 }
 

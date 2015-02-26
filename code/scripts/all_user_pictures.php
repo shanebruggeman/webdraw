@@ -25,7 +25,6 @@
 	$images = array();
 
 	foreach ($queryResults as $filename => $idArray) {
-		// $images[$filename] = array();
 
 		for($i = 0; $i < count($idArray); $i++) {
 			$currentId = $queryResults[$filename][$i];

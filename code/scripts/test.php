@@ -38,6 +38,5 @@
 		}
 	}
 
-	// echo json_encode($images);
 	echo "hello";
  ?>

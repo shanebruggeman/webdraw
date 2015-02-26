@@ -1,13 +1,11 @@
 window.onload = function(){
 	onStart();
-	//FILL with most recent 20
 	fillPics();
 }
 var fillPics = function(){
 	var picList = $("#myPics ul");
 	$.ajax({
 		type: "GET",
-		//url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
 		url: "http://webdraw.csse.rose-hulman.edu/all_public_pictures.php",
 		dataType: "json",
 		success: function(data) {
@@ -30,14 +28,11 @@ var fillPics = function(){
 }
 
 var searchPublic = function() {
-	console.log("searching");
 	var searchQuery = $("#search > input[name=searchterm]").val();
 	var packet =
 	{
 		"name" : searchQuery
 	}
-
-	console.log("packet is " + packet);
 
 	$.ajax({
 		typ: "GET",
@@ -45,12 +40,10 @@ var searchPublic = function() {
 		dataType: "json",
 		data: packet,
 		success: function(data) {
-			console.log(data);
 			var picList = $(".gallery > ul");
 			$(picList).empty();
 
 			for(var id in data){
-				console.log(id);
 				var item = $('<li>\n \n</li>');
 				var pic = $(data[id]["image"]);
 				pic.attr("alt", data[id]["name"]);

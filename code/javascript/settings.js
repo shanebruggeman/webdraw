@@ -203,7 +203,6 @@ var unfriend = function(e){
 		"friendid": e.getAttribute('userid')
 	}
 
-	console.log(e.getAttribute('userid'));
 	$.ajax({
 		type: "POST",
 		url: 'http://webdraw.csse.rose-hulman.edu/unfriend.php',
@@ -223,7 +222,6 @@ var addFriend = function(e){
 		"requesteeid": e.getAttribute('userid')
 	}
 
-	console.log(e.getAttribute('userid'));
 	$.ajax({
 		type: "POST",
 		url: 'http://webdraw.csse.rose-hulman.edu/add_friend_request.php',
@@ -242,7 +240,6 @@ var acceptFriend = function(e){
 		"requesterid": e.getAttribute('userid')
 	}
 
-	console.log(e.getAttribute('userid'));
 	$.ajax({
 		type: "POST",
 		dataType: false,
@@ -261,7 +258,6 @@ var rejectFriend = function(e){
 		"requesteeid": USERID,
 		"requesterid": e.getAttribute('userid')
 	}
-	console.log(packet);
 	$.ajax({
 		type: "POST",
 		dataType: false,

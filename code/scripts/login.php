@@ -1,5 +1,4 @@
 <?php
-	// note to add session stuff later
 
 	// necessary for allowing cross-origin requests
 	header("Access-Control-Allow-Origin: *");
@@ -26,5 +25,4 @@
 		http_response_code(418);
 	}
 
-	// echo json_encode($returns);
  ?>

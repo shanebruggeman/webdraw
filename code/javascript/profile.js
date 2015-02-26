@@ -122,8 +122,6 @@ var setProfile = function(e){
 
 var deletepic = function(e){
 	var picID = $("#viewer-picture img").attr("data");
-	console.log(e);
-	console.log(picID);
 	var packet = {
 		"id": picID
 	}

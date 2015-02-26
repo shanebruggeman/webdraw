@@ -67,18 +67,13 @@ var forkpic = function(e) {
 }
 
 var deletepic = function(e) {
-	console.log("delete", e);
 	
 	var id = e.getAttribute("id");
-	console.log("id",id);
 	
 	$.ajax({
 		type: 'POST',
 		url: 'http://webdraw.csse.rose-hulman.edu/delete.php',
 		data: {id: id},
-		success: function (resp) {
-			console.log("resp",resp);
-		}
   });
 }
 

@@ -1,11 +1,6 @@
-/**
-login-wrapper
-blackBackground
-**/
 var MENU;
 
 window.onload = function(){
-	console.log("testing username: " + Cookie.get("username"));
 
 	var usernameField = $("input[name=username]");
 	var passwordField = $("input[name=password]");
@@ -18,7 +13,6 @@ window.onload = function(){
 		console.log("success");
 	} else {
 		beforeLoggedInBar();
-		console.log("must default");
 	}
 	fillPics();
 }
@@ -76,7 +70,6 @@ var login = function(){
 		"password": credentials["password"]
 	};
 
-	//console.log("Sending off data: " + packet);
 
 	$.ajax({
 		type: "POST",
@@ -85,7 +78,6 @@ var login = function(){
 		data: packet,
 		async: false,
 		success: function(data) {
-			console.log("login data: " + data);
 			Cookie.set("username", packet.username);
 			Cookie.set("login-success", true);
 			document.getElementById('menu').innerHTML= MENU;
@@ -94,15 +86,11 @@ var login = function(){
 		$("body").innerText ='If you are not redirected automatically, follow the <a href="profile.php">link</a>';
 		},
 		error: function() {
-			//console.log("invalid parameters passed");
-			//WRITE TO SCREEN INVALID USERNAME OR PASSWORD
 			$("#loginError").show();
 		},
 		complete: function() {
 			
 		}
-	}).done(function() {
-		console.log("done");	
 	});
 }
 

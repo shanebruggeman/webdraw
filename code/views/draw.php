@@ -50,8 +50,7 @@
 	<div class="wrapper">
 		<header role="banner">
 			<?php include 'navbar.html' ?>
-		</header>
-		<!--New Shit goes here-->		
+		</header>	
 		<div class="push"></div>
 	</div>
 	
@@ -65,11 +64,6 @@
 	
 <!-- BEGIN WPAINT __________________________________________________________________-->
       <div id="wPaint"></div>
-      <!--<div id="emailbox">
-        <input id="email" type="text" placeholder="Enter email"/>
-        <input id="email-button" type="button" value="Email Image"/>
-        <span id="email-msg"></span>
-      </div>-->
       <div id="wPaint-img"></div>
 <!-- END WPAINT ____________________________________________________________________-->	
 

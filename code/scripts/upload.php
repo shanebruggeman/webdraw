@@ -3,11 +3,9 @@
 	ini_set('display_errors', 'On');
 	include 'setdb.php';
 	
-	//file_put_contents("post.txt","anonymous message: ");
 	
 	$image = imagecreatefrompng($_POST['image']);
 	
-	//$id = uniqid();
 	
 	if(isset($_POST['parent'])) {
 		$parentid = $_POST['parent'];
