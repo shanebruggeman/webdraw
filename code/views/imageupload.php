@@ -7,6 +7,7 @@
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="../style/main.css">
 	<link rel="stylesheet" type="text/css" href="../style/draw.css">
+	<link rel="stylesheet" type="text/css" href="../style/imageupload.css">
 	
 	<!--Javascript-->
 	<script src="../libraries/jquery-2.1.3.min.js"></script>
@@ -38,32 +39,36 @@
 			save_post();
 		}
 	?>
-	
+	<div id="wrapper">
 	<form id="imageform" action="imageupload.php" method="post" enctype="multipart/form-data">
-		<fieldset>
-			<legend>Post a New Image</legend>
-			
-			<div>
+	<div id="upload-header">
+		<div id="myTitle">
+			<h1>Upload an Image</h1>
+		</div>
+	</div>
+	<div id="options">
+			<div id="user">
 				<label for="username">Username</label>
 				<br>
 				<input id = 'username' type = "test" name="username" size="40" readonly/>
 			</div>
 			
-			<div>
+			<div id="title">
 				<label for="name">Title</label> <br />
 				<input type = "test" name="name" size="40" />
 			</div>
 			
-			<div>
+			<div id="image">
 				<label for="image">Image</label> <br />
-				<input type="file" name="image" size="50" />
+				<input id="choose" type="file" name="image" size="50" />
 			</div>
 			
 			<div>
 				<input id = "submitbutton" type="submit" value="post image" />
 			</div>
-		</fieldset>
+		</div>
 	</form>
+</div>
 	
 	<?php
 		function save_post() {

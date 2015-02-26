@@ -1,0 +1,38 @@
+#upload-header {
+	clear:both;
+	width:100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+	height: auto;
+	overflow: auto;
+}
+#wrapper {
+	width: 50%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#user label, #title label, #image label{
+	font-size: 1.5em;
+}
+input {
+	font-size: 0.9em;
+}
+#options {
+	background-color: #5c5c5c;
+	padding-bottom: 15px;
+}
+
+#submitbutton {
+	margin-top: 20px;
+	font-size: .9em;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
