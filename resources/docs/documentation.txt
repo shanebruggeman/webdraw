@@ -201,7 +201,7 @@ Check If User Exists
 		"plain text string, 'taken' or 'available,' to inform if the given username
 		is already in the database"
 
-Set Profile Picture (used profile.js)
+Set Profile Picture
 	POST
 		url: 'http://webdraw.csse.rose-hulman.edu/set_profile_picture.php',
 		dataType: false,
@@ -209,6 +209,18 @@ Set Profile Picture (used profile.js)
 			userid: #,
 			username: #,
 			pictureid: #
+		}
+
+	Returns:
+		Nothing
+
+Set Picture Owner
+	POST
+		url: 'http://webdraw.csse.rose-hulman.edu/set_picture_owner.php',
+		dataType: false,
+		data: {
+			"userid" : user_id,
+			"picture_id" : picture_id
 		}
 
 	Returns:
