@@ -59,6 +59,7 @@ var pictureViewer = function(ownership) {
 var closeViewer = function() {
 	$("#blackBackground").hide();
 	$("#viewer-wrapper").hide();
+	$("#edit-wrapper").hide();
 }
 
 //sends image url to draw page to use as starting image

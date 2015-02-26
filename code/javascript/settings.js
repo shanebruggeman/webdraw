@@ -27,9 +27,9 @@ var fillFields = function(username){
 		data: packet,
 		success: function(data1) {			
 			var data = JSON.parse(data1);
-			$("#firstName").attr("value",data["first_name"]);
-			$("#lastName").attr("value",data["last_name"]);
-			$("#emailInput").attr("value",data['email']);
+			$("#firstName").html(data["first_name"]);
+			$("#lastName").html(data["last_name"]);
+			$("#email").html(data['email']);
 		},
 		error: function(request, status, error) {
 			console.log("Failed to retrieve a picture");
@@ -269,4 +269,35 @@ var rejectFriend = function(e){
 			closeViewer();
 		}
 	});
+}
+
+var editProfile = function(){
+	$("#blackBackground").show();
+	$("#edit-wrapper").show();
+}
+
+var updateProfile = function() {
+	var packet = {};
+	packet["userid"] = USERID;
+	console.log($("#first-name").val());
+	if ($.trim($("#first-name").val()).length != 0){
+		packet["firstname"] = $("#first-name").val();
+	}
+	if ($.trim($("#last-name").val()).length != 0){
+		packet["lastname"] = $("#last-name").val();
+	}
+	if ($.trim($("#pass").val()).length != 0){
+		packet["password"] = $("#pass").val();
+	}
+	if ($.trim($("#emailInput").val()).length != 0){
+		packet["email"] = $("#emailInput").val();
+	}
+	$.ajax({
+		type: "POST",
+		url: 'http://webdraw.csse.rose-hulman.edu/update_user.php',
+		data: packet,
+		success: function() {
+			location.reload();
+		}
+	})
 }

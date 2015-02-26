@@ -23,12 +23,15 @@
 			<div class="right">
 				<h1 id="username">Username</h1>
 				<div class="name">
-					<input class="nameInput" id="firstName" type="text" name="firstName" >
-					<input class="nameInput" id="lastName" type="text" name="lastName"></div>
+					<h3 class="nameInput" id="firstName"></h3>
+					<h3 class="nameInput" id="lastName"></h3>
+					<!-- <input class="nameInput" id="firstName" type="text" name="firstName" >
+					<input class="nameInput" id="lastName" type="text" name="lastName"></div> -->
+				</div>
 				<br>
-				<input id="emailInput" type="text" name="email">
+				<h3 id="email"></h3>
 				<br>
-				<button id="saveProfile"type="submit" value="profile" onclick="saveProfile()">Save</button>
+				<button id="editProfile"type="submit" value="profile" onclick="editProfile()">Edit Profile</button>
 			</div>
 			<div class="myfriends">
 				<div class="scroll-header" id="friends-header">
@@ -85,6 +88,33 @@
 				</div>
 			</div>
 		</div>
+
+		<div style="display:none" id="edit-wrapper">
+		<div id="edit-header">
+			<h2>Edit Profile</h2>
+		</div>
+		<div id="edit-form">
+			<label for="first-name" >First Name</label>
+			<br>
+			<input id="first-name" type="text" name="first-name" autofocus/>
+			<br>
+			<label for="last-name">Last Name</label>
+			<br>
+			<input id="last-name" type="text" name="last-name" autofocus/>
+			<br>
+			<label for="pass">New Password</label>
+			<br>
+			<input id="pass" type="password" name="pass" autofocus/>
+			<br>
+			<label for="email">E-mail</label>
+			<br>
+			<input id="emailInput" type="email" name="emailInput" autofocus/>
+			<br>
+			<button id="edit" type="submit" value="Save Changes" onclick="updateProfile()">Save Changes</button>
+		</div>
+	</div>
+
+
 		<div style="display:none;" id="blackBackground" onclick="closeViewer()"></div>
 	</div>
 </body>

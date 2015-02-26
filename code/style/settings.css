@@ -26,18 +26,18 @@
 	margin-bottom:30px;
 }
 
-.name input {
+.name h3 {
 	display: inline;
 	font-size: 1.2em;
 	width: 145px;
 }
 
-#emailInput{
+#email{
 	font-size: 1.1em;
 	width: 300px;
 }
 
-#saveProfile{
+#editProfile{
 	margin-top: 25px;
 	font-size: .7em;
 	padding: 5px 15px;
@@ -117,3 +117,53 @@
 	display:inline;
 }
 
+
+
+
+
+
+
+
+#edit-wrapper {
+	display:inline-block;
+	position:absolute;
+	width: 300px;
+	height: 300px;
+	padding: 20px;
+		/**FORCE THE CENTER**/
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	/* bring your own prefixes */
+  	transform: translate(-50%, -50%);
+	z-index: 5;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#edit-header{
+	color: #FFFFFF;
+	background-color:#44a6c7;
+	padding: 10px 20px;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: bold;
+}
+
+#edit-form {	
+	/**needs further styling**/
+	padding: 10px 20px;
+	color:black;
+	background-color: #FFFFFF;
+	text-align: left;
+	border-radius: 0px 0px 5px 5px;
+	font-weight: bold;
+}
+
+#edit-form button {
+	margin:7px 0px 0px 0px;
+	font-size: 14px;
+	padding: 5px 15px;
+	background-color: #EEE;
+	width: auto;
+	font-weight: bold;
+	border-radius: 2px 2px 2px 2px;
+}
