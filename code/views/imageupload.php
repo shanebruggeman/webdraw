@@ -41,19 +41,21 @@
 	
 	<form id="imageform" action="imageupload.php" method="post" enctype="multipart/form-data">
 		<fieldset>
-			<legend>post a new image</legend>
+			<legend>Post a New Image</legend>
 			
 			<div>
+				<label for="username">Username</label>
+				<br>
 				<input id = 'username' type = "test" name="username" size="40" readonly/>
 			</div>
 			
 			<div>
-				title: <br />
+				<label for="name">Title</label> <br />
 				<input type = "test" name="name" size="40" />
 			</div>
 			
 			<div>
-				image: <br />
+				<label for="image">Image</label> <br />
 				<input type="file" name="image" size="50" />
 			</div>
 			
